@@ -4,7 +4,7 @@ from multiprocessing import Process
 filename = './byte.png'
 
 size = os.path.getsize('filename')
-
+os.path.getsize(路径)
 
 def copy1():
     f = open(filename,'rb')
@@ -26,7 +26,8 @@ def copy1():
 
 def copy2():
     f = open(filename,'rb')
-    fw = open('file2.png','rb')f.seek(size//2,0) 
+    fw = open('file2.png','rb')
+    f.seek(size//2,0)#从这个字节开始，向文件尾部读取
     while True:
         data = f.read(1024)
         if not data:

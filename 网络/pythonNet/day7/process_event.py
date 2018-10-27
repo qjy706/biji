@@ -2,14 +2,14 @@ from multiprocessing import Process,Event
 from time import sleep
 
 def wait_event():
-    print('想操作临界区')
+    print('1想操作临界区')
     e.wait()
     print('开始操作临界区资源',e.is_set())
     with open('file') as f:
         print(f.read())
 
 def wait_event_timeout():
-    print('也想操作临界区')
+    print('2也想操作临界区')
     e.wait(2)#时间阻塞
     if e.is_set():
         with open('file') as f:

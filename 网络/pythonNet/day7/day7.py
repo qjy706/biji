@@ -23,7 +23,7 @@ SIGKILL  终止一个进程
 SIGSTOP   暂停一个进程
 SIGALRM   时钟信号　
 SIGCHLD 　　子进程状态改变时给父进程发出
-
+SIGCHLD SIG_IGN
 signal.pause()
 功能：阻塞等待接收一个信号　
 
@@ -44,6 +44,7 @@ signal.signal(signum,handler)
                  sig: 捕获到的信号　
                  frame : 信号对象　
 
+os.kill(pid,信号对象　) 发送信号
 
 
  信号量也是一把锁，可以指定信号量为5，
@@ -80,9 +81,16 @@ sem.acquire()
 sem.release()
 
 
+
+from multiprocessing import Process,Semaphore,Queue,Pipe,Value,Lock
 进程同步互斥　
 
-同步是特殊的互斥　互斥是特殊的同步
+同步是复杂的互斥　互斥是特殊的同步.　
+
+
+同步是在互斥的基础有序的进行　　
+互斥　：互斥是一种制约关系，
+
 
 临界资源　：　多个进程或者线程都能够操作的共享资源　
 
@@ -109,6 +117,8 @@ a.value _=
 
 互斥　：互斥是一种制约关系，当一个进程或者线程使用临界资源时进行上锁处理，当另一个
 　　　　　　　　进程使用时会阻塞等待，直到解锁后才能继续使用　
+
+就绪态　等待态　运行太　新建太　结束态
 
 Event 事件　
 
@@ -140,8 +150,10 @@ lock.release()
 
 s=Semaphore(5)
 s.acquire()
-s.release()
+s.release()送
 
+首先还是创建锁的对象　这是一个类　调用方法　acquire release 
+事件也是一个锁　
 
 创建对象　
 lock = Lock()
@@ -199,8 +211,12 @@ t.join([timeout]) 回收线程
 多个线程同属于一个进程　进程号一样的
 
 p.pid 
-
-
+os.getpid()
+os.getppid()
+os.path.exists()
+os.listdir(path)
+os.path.getsize()
+getpasswd
 线程对象属性
 
 t.is_alive() 查看线程状态　

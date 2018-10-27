@@ -50,23 +50,23 @@
 
 
 # 私有属性和方法
-class A:
-    def __init__(self):
-        self.__p1=100
-        # self.__p2__=200
-#__p1为私有属性 只有开头双下划线,特殊的命名方式
-    def show_info(self):
-        print(self.__p1)#此对象的实例方法可以访问和修改私有属性
-        self.__m()#用自己的方法调用自己的私有方法没有问题
-#私有方法只给自己用　私有属性也是只给自己用　
-    def __m(self):
-        print('A类对象的__m方法被调用')#__m相当于Ａ的类变量，绑定的是方法
+# class A:
+#     def __init__(self):
+#         self.__p1=100
+#         # self.__p2__=200
+# #__p1为私有属性 只有开头双下划线,特殊的命名方式
+#     def show_info(self):
+#         print(self.__p1)#此对象的实例方法可以访问和修改私有属性
+#         self.__m()#用自己的方法调用自己的私有方法没有问题
+# #私有方法只给自己用　私有属性也是只给自己用　
+#     def __m(self):
+#         print('A类对象的__m方法被调用')#__m相当于Ａ的类变量，绑定的是方法
 
-a=A()
-# print(a.__p1)#私有属性不允许访问
-print(a._A__p1)#这样又可以了　是一个障眼法　实例加一个下划线加一个类名加隐藏属性就可以访问了
-#只能在内部进行访问
-a.show_info()
+# a=A()
+# # print(a.__p1)#私有属性不允许访问
+# print(a._A__p1)#这样又可以了　是一个障眼法　实例加一个下划线加一个类名加隐藏属性就可以访问了
+# #只能在内部进行访问
+# a.show_info()
 # 对象的私有属性要通过对象的方法来进行访问
 # 私有属性要通过实例方法来调用和修改实例属性
 # a.__m()#也是无法调用的
@@ -75,25 +75,25 @@ a.show_info()
 
 #多态　polymorphic 
 
-class Shape:
-    def draw(self):
-        print('Shape的draw()被调用')
+# class Shape:
+#     def draw(self):
+#         print('Shape的draw()被调用')
 
-class Point(Shape):
-    def draw(self):
-        print('正在画一个点')
+# class Point(Shape):
+#     def draw(self):
+#         print('正在画一个点')
 
-class Circle(Point):
-    def draw(self):
-        print('正在画一个圆')
+# class Circle(Point):
+#     def draw(self):
+#         print('正在画一个圆')
 
-def my_draw(s):
-    s.draw()#此处调用哪种方法
+# def my_draw(s):
+#     s.draw()#此处调用哪种方法
 
-s1=Circle()
-s2=Point()
-my_draw(s1)
-my_draw(s2)
+# s1=Circle()
+# s2=Point()
+# my_draw(s1)
+# my_draw(s2)
 
 #多继承　multiple inheritance 
 # class Car:
@@ -394,8 +394,8 @@ it=iter(myl)
 #这时候类里面没有__iter__(self)只能寻找超类，但返回的是一个地址　报错
 # print(next(it))
 
-for x in myl:
-    print(x)
+# for x in myl:
+#     print(x)
 
 
 
@@ -445,51 +445,51 @@ for x in myl:
 
 
 
-# class qqq:
-
-#     def __init__(self,a):
-#         self.a=a
-#     def isaprime(self):
-#         if self.a < 2:
-#             pass
-#         for i in range(2,self.a):
-#             if self.a % i == 0:
-#                 return False
-#             return self.a
-
-# # L=qqq(10)
-# # print(L.isaprime())
-# class Prime:
-#     def __init__(self,b,n,L=[],s=0):
-#         self.b=b
-#         self.walk=n
-#         self.L=[]
-#         self.s=0
-#     def __iter__(self):
-#         while self.s < self.walk:
-#             if qqq(self.b):
-#                 self.L.append(qqq(self.b).isaprime())
-#                 self.s += 1
-#                 self.b += 1
-#             if self.s == self.walk:
-#                 break
-#         return iter(self.L)
-
-    # def __next__(self):
-    #     for x in self.L:
-    #         if x == 'False':
-    #             del self.L.remove(x)
-    #     return self.L
-      
 
 
+class Prime(object):
+    def __init__(self,b,n,L=[],s=0):
+        self.b=b
+        self.n=n
+        self.count=0
 
-# L=Prime(10,8)
-# a=[x for x in iter(L)]
-# print(a)
+    def __iter__(self):
+        print('被调用')
+        return self
+
+    def isprimy(self,x):
+        if x < 2:
+            return False
+        for i in range(2, x):
+            if x % i == 0:
+                return False
+        return True
 
 
+    def __next__(self):
+        print('被调用')
+        if self.count > self.n:
+            raise StopIteration
+        while True:
+            if self.isprimy(self.b):
+                r=self.b
+                self.b += 1
+                self.count += 1
+                return r
+            self.b += 1
 
+L = []
+it = Prime(10,4).__iter__()
+while True:
+    try:
+        x = next(it)
+        L.append(x)
+    except StopIteration:
+        break
+print(L)
+
+L = [x for x in Prime(10, 4)]
+print(L)  # L = [11, 13, 17, 19]
 
 
 

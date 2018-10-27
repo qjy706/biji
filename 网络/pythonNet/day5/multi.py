@@ -16,6 +16,10 @@ def fun():
 #创建进程对象　 进程绑定函数　
 p = mp.Process(target = fun)
 
+#L=[]
+#L.append(p)
+# for i in L:
+#     i.start()
 
 #启动进程　 函数变成进程时间函数
 p.start()
@@ -27,3 +31,4 @@ p.join()
 
 
 print('parent a',a)
+

@@ -214,6 +214,8 @@ lambda 表达式
     mymax = lambda .....
     print(mymax(100, 200))  # 200
 
+    mymax = lambda x,y:max(x,y)
+
   看懂下面的程序在做什么?
     def fx(f, x, y):
         print(f(x, y))

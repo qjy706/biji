@@ -24,6 +24,7 @@
 #     import random
 #     L=range(101)
 #     x=random.choice(L)
+#     x=random.randrange(101)也可以
 #     while True:
 #         y=int(input('请输入一个整数'))
 #         if y == x:

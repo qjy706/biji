@@ -309,6 +309,8 @@ Out[105]: ['\n']
 
 贪婪与非贪婪　
 
+.*?就意味着匹配任意数量的重复，但是在能使整个匹配成功的前提下使用最少的重复
+正则表达式有另一条规则，比懒惰／贪婪规则的优先级更高：最先开始的匹配拥有最高的优先权
 贪婪模式　：　正则表达式的重复匹配总是尽可能多的向后匹配更多内容
 
  * + ? {m,n}
@@ -345,7 +347,7 @@ Out[127]: 'abc@123.com'
 
 In [128]: re.search(r'\w+@\w+\.(com|cn)','abc@123.cn').group()
 Out[128]: 'abc@123.cn'
-
+\w+@\w+\.(com|cn)
 
 
 ２　子组在某些操作中可以单独提取出匹配内容　
@@ -443,7 +445,7 @@ re.sub(pattern,replaceStr,string,max,flags)
 返回值：　返回替换后的字符串　
 s = re.sub(r'\s+','#','hello world nihao china')
 hello#world#nihao#china
-
+'\s+'匹配一个或多个空字符
 
 re.subn(pattern,replaceStr,string,max,flags)
 功能：　替换正则匹配到的目标字串部分　

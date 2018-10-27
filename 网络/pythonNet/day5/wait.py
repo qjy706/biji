@@ -54,3 +54,18 @@ else:
     while True:
         pass
 #几乎是单进程了
+
+
+pid = os.fork()
+
+if pid < 0:
+    print('create process')
+
+elif pid == 0:
+    pid1 = os.fork()
+    if pid1 < 0:
+        print('create process')
+    elif pid1 == 0 :
+        pass
+    else:
+        sys.exit('父进程退出')

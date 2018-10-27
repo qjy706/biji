@@ -9,7 +9,7 @@ p.is_alive() 判断进程生命周期状态，处于生命周期得到True
 
 p.name 进程名称　默认为Process-1 
 p.pid 　进程的PID号　
-
+pcb 进程控制块　
 
 p.pid 进程的pid号
 os.getpid()　当前进程pid 
@@ -105,7 +105,9 @@ sem = Semaphore(3)
 
 进程间通信方法：管道，消息队列，共享内存，信号，信号量，套接字
 
-
+fd1,fd2 = Pipe()
+fd1.send
+fd2.recv
 
 管道通信　　Pipe 
 通信原理：　在内存中开辟管道空间，生成管道操作对象，
@@ -190,8 +192,22 @@ obj = Array(ctype,obj)
       *  如果存入的是字符串　
       　　　obj.value 表字符串的首地址　
 
+'b'     signed char      int     1    
+'B'     unsigned char   int     1    
+'u'     Py_UNICODE  Unicode character   2   (1)
+'h'     signed short     int     2    
+'H'     unsigned short  int     2    
+'i'     signed int  int     2    
+'I'     unsigned int    int     2    
+'l'     signed long     int     4    
+'L'     unsigned long   int     4    
+'q'     signed long long    int     8   (2)
+'Q'     unsigned long long  int     8   (2)
+'f'     float   float   4    
+'d'     double  float   8    
 
 
+http1.1 持久链接
 　　　　　　　　　　　　管道　　　　　　　　　　　　　　　消息队列　　　　　　　　　　　　共享内存　
 
 开辟空间　　　　　内存　　　　　　　　　　　　　　　　内存　                内存
@@ -212,7 +228,7 @@ kill -sig PID 向一个进程发送一个信号　
 
 kill -9 20715 
 
-p.pid 进程号 
+p.pid 当前进程号 
 
 SIGHUP   连接断开　
 SIGINT   CTRU-C
@@ -225,7 +241,7 @@ SIGCHLD 　　子进程状态改变时给父进程发出
 
 python 发送信号　
 
-signal 
+signal.signal 处理信号 pid 
 
 os.kill(pid,sig)
 功能；　发送信号　

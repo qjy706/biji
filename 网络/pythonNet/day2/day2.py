@@ -92,6 +92,8 @@ udp 客户端流程
 
 
 cookie 
+
+
  
 1,sys.argv 属性　
 功能：获取命令行参数,得到一个列表
@@ -111,6 +113,8 @@ python3 客户端.py 192.1.1.1  8888
 
 
 TCP 和 UDP 区别　
+一个是有连接的　无差错　无重复　无失序　无丢失
+一个是无连接的　保证数据的基本流畅　不保证可靠性
 
 １．流失套接字使用字节流的方式传输，数据报套接字以数据报形式传输数据
 ２　TCP会有粘包现象，UDP有消息边界不会形成粘包　
@@ -122,7 +126,7 @@ TCP 和 UDP 区别　
 
 
 补充函数　
-
+看懂了上面那个，这个函数就容易明白了。发送完整的TCP数据，成功返回None，失败抛出异常
 sendall(data)
 功能：发送tcp 消息
 参数：要发送的内容，　bytes格式　
@@ -154,6 +158,8 @@ s.setsockopt(SOL_SOCKET,SO_REUSEADDR,1)
 #获取套接字选项值
 print(s.getsockopt(SOL_SOCKET,SO_REUSEADDR))
 
+s.setblocking(False)
+
 s.bind(('0.0.0.0',9999))
 #获取绑定地址
 print(s.getsockname())
@@ -161,6 +167,10 @@ print(s.getsockname())
 #获取套接字的文件描述符
 #每一个IO事件操作系统都会分配一个不同的正整数作为编号，改正整数即为这个IO文件描述符
 print(s.fileno())
+
+poll|epoll
+
+d={s.fileno:s}
 
 
 #标准化输出！！！
@@ -192,6 +202,7 @@ s.getsockopt(level,option)
 
 
 s.setblocking(False)
+设置成非阻塞非阻塞
 
 
 udp应用之广播：
@@ -215,6 +226,7 @@ http协议：超文本传输协议　是一个应用层协议　
 ３，无状态协议，即不记录用户传输的信息
 ４，http1.1 支持持久连接　
 
+q=splitlines()  if q[0][1] == '/' or q[0][:-5] == '.html'
 一端通过http请求的格式发送具体请求内容，另一端接受http请求，按照协议格式解析．
 获取真实请求后按照http协议响应格式组织恢复内容，回发给请求方，完成一次数据交互
 

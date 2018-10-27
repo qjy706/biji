@@ -1,6 +1,7 @@
 from socket import *
 def fuwuqi():
     sockfd=socket(AF_INET,SOCK_STREAM)
+    sockfd.setsockopt(SOL_SOCKET,SO_REUSEADDR,1)
     sockfd.bind(('0.0.0.0',10000))
     sockfd.listen(5)
 #等待接受连接　

@@ -24,9 +24,9 @@ IO分类　
 阻塞IO :  阻塞IO是IO的一种默认形态，是效率较低的一种IO．
 
 input sleep 等待执行　就是一种阻塞IO 达到某种条件继续运行
+在内存中进行阻塞操作
 
-
-阻塞情况：
+阻塞情况　　某些条件没有达成造成的阻塞
 
 1..因为某种条件没有达成造成的阻塞
 
@@ -54,9 +54,10 @@ e.g.  accept input recv send sleep
 s.settimeout(sec)
 设置套接字的超时间　
 
+s.settimeout(sec)
 # select(...[timeout])   join()
 
-
+io在内存中进行数据交换
 
 IO多路复用　
 
@@ -164,9 +165,10 @@ events=p.poll()
 　　　　　　　代表一个发生的io事件　
 [(fileno,　　　　　　　　　　　　　　　　event),(),().....]
 就绪IO的文件描述符　　　　　　　　　　　具体就绪事件
- 
 
-*需要通过文件描述符(fileno)找到对应的io对象　
+整型的文件描述符
+
+*需要通过整型文件描述符(fileno)找到对应的io对象　
 {s.fileno():s} 
 
 

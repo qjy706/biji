@@ -11,4 +11,4 @@ def hello_word_1():
                 密码：<input type='passwd' name='passwd'></input><br\> 
                 提交：<input type='submit' name='submit'></input> </form> '''
 
-app.run()
+app.run(debug=True)

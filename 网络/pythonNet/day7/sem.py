@@ -14,7 +14,7 @@ sem = Semaphore(3)
 #pool.join()
 
 def fun():
-    print('进程%d等待信号量'%os.getpid())
+    print('进程%d等待信号量'%p.pid)
 #消耗一个信号量　
 
 #信号变成0　剩下的一个进程会阻塞　等待信号添加　进行下一步

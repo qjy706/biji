@@ -25,14 +25,14 @@ j  k  l
             print ('move forward')
         elif ch=='m':
             print ('move back')
-        elif ch=='j':
+        elif ch=='a':
             print ("turn left!")
-        elif ch=='l':
+        elif ch=='s':
+            print ("turn down!")
+        elif ch=='d':
             print ("turn right!")
-        elif ch=='u':
-            print ("turn right!")
-        elif ch=='o':
-            print ("turn right!")
+        elif ch=='w':
+            print ("turn on!")
         elif ch=='k':
             print ("stop motor!")
         elif ch=='q':

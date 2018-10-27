@@ -1,24 +1,29 @@
-# L=[1,3,5,7]
-# it=iter(L)  #让Ｌ提供一个能访问自己的迭代器
-# next(it)   # 1从迭代器中取值，让迭代器去获取Ｌ中的一个元素
-# L=[2,3,5,7]
-# it=iter(L)
-# while True:
-#     try:
-#         x=next(it)
-#         print(x)
-#     except:
-#         break 
-# L=[2,3,5,7]
-# it=iter(L)
-# try:
-#     while True:
-#         x=next(it)
-#         print(x)
-# except:
-#     pass
+L=[1,3,5,7]
+it=iter(L)  #让Ｌ提供一个能访问自己的迭代器
+next(it)   # 1从迭代器中取值，让迭代器去获取Ｌ中的一个元素
+L=[2,3,5,7]
+it=iter(L)
+while True:
+    try:
+        x=next(it)
+        print(x)
+    except:
+        break 
+L=[2,3,5,7]
+it=iter(L)
+try:
+    while True:
+        x=next(it)
+        print(x)
+except:
+    pass
 
-
+L=[2,3,5,9]
+it=iter(L)
+try:
+    while True:
+        x=next(it)
+        print(x)
 
 
 

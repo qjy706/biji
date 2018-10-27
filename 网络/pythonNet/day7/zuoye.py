@@ -32,7 +32,7 @@ def siji(sig,frame):
     elif sig == SIGUSR2:
         print('车速有点快，系好安全带')
     elif sig == SIGTSTP:
-        os.kill(p.pid,SIGUSR1)
+        os.kill(p.pid,SIGUSR1)#发送信号
 
 while True:
     signal(SIGUSR1,siji)

@@ -178,49 +178,49 @@ a是个对象　，装饰器函数classmethod会自动把对象转换成a.__clas
 # print(Student.get_avg_score())
 
 
-# 单继承　
+单继承　
 
-# class Human:
-#     def say(self,what):
-#         print('说：',what)
+class Human:
+    def say(self,what):
+        print('说：',what)
 
-#     def walk(self,distance):
-#         print('走了',distance,'公里')
+    def walk(self,distance):
+        print('走了',distance,'公里')
 
-# class Student(Human):#当前学生类继承自Human
-# # Human派生了学生类　　Human就是父类　
-#     # def say(self,what):
-#     #     print('说：',what)
-#     # pass # 这时候跟Human没啥区别　派生了一个新类　但功能跟huamn一样
+class Student(Human):#当前学生类继承自Human
+# Human派生了学生类　　Human就是父类　
+    # def say(self,what):
+    #     print('说：',what)
+    # pass # 这时候跟Human没啥区别　派生了一个新类　但功能跟huamn一样
 
-#     # def walk(self,distance):
-#     #     print('走了',distance,'公里')
-#     def study(self,subject):
-#         print('正在学习',subject)
+    # def walk(self,distance):
+    #     print('走了',distance,'公里')
+    def study(self,subject):
+        print('正在学习',subject)
 
-# h1=Human()
-# h1.say('今天天气真好')
-# h1.walk(5)
+h1=Human()
+h1.say('今天天气真好')
+h1.walk(5)
 
-# s1=Student()
-# s1.walk(4)
-# s1.say('感觉有点累')
-# s1.study('python')
+s1=Student()
+s1.walk(4)
+s1.say('感觉有点累')
+s1.study('python')
 
 
-# list 类里只有append 想末尾加一个元素的方法，但没有向列表头部
-# 添加元素的方法　
-# 是想能否列表在不改变原有功能的基础上添加一个insert_head(x)方法
-# 此方法能在列表的前部添加元素　
-# class MyList(list):#好比老虎是猫也是生物　mylist是类也是列表
-#     def insert_head(self,x):
-#         self.insert(0,x)
-#         return self 
-#         # self[0:0]=[x]
-#         # retuen self
+list 类里只有append 想末尾加一个元素的方法，但没有向列表头部
+添加元素的方法　
+是想能否列表在不改变原有功能的基础上添加一个insert_head(x)方法
+此方法能在列表的前部添加元素　
+class MyList(list):#好比老虎是猫也是生物　mylist是类也是列表
+    def insert_head(self,x):
+        self.insert(0,x)
+        return self 
+        # self[0:0]=[x]
+        # retuen self
 
-# myl=MyList(range(3,6))
-# print(myl)
+myl=MyList(range(3,6))
+print(myl)
 # print(myl.insert_head(13))
 
 
@@ -251,32 +251,32 @@ a是个对象　，装饰器函数classmethod会自动把对象转换成a.__clas
 
 
 
-#super 函数
-#super 函数
+super 函数
+super 函数
 
 
-# class A:
-#     def work(self):
-#         print('A.work被调用')
+class A:
+    def work(self):
+        print('A.work被调用')
 
-# class B(A):
-#     '''B类继承A类'''
-#     def work(self):
-#         print('b.work被调用')
-# # 一旦子类有跟父类同名的方法，方法的调用是子类的调用　是一种覆盖版本
-# 　　　　def super_work(self):
-#         self.work()
-#         super(B,self).work()
-#         super(self.__class__,self).work()
-#         super().work()# 当super没有参数的时候会找到调用他的类
-# # 和对象　　但必须在方法内部（示例方法内部调用）
-# b=B()
-# b.work()#A是Ｂ的父类　先找ｂ再找Ａ　　B.work(b)
-# super(B,b).work()#超类　是　先找Ｂ的超类Ａ　　把b当成Ａ的对象
-# 把子类对象看成父类对象
+class B(A):
+    '''B类继承A类'''
+    def work(self):
+        print('b.work被调用')
+# 一旦子类有跟父类同名的方法，方法的调用是子类的调用　是一种覆盖版本
+　　　　def super_work(self):
+        self.work()
+        super(B,self).work()
+        super(self.__class__,self).work()
+        super().work()# 当super没有参数的时候会找到调用他的类
+# 和对象　　但必须在方法内部（示例方法内部调用）
+b=B()
+b.work()#A是Ｂ的父类　先找ｂ再找Ａ　　B.work(b)
+super(B,b).work()#超类　是　先找Ｂ的超类Ａ　　把b当成Ａ的对象
+把子类对象看成父类对象
 
 
-
+有覆盖才有超类
 #显示调用基类的初始化方法　
 class Human:
     def __init__(self,n,a):
