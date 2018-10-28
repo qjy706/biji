@@ -1,0 +1,43 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>提交按钮</title>
+</head>
+<body>
+    <form action="login">
+            所在地区:&nbsp;
+        <select name="province">
+        <option value="hebei">河北</option>
+        <option value="anhui">安徽</option>
+        <option value="shandong">山东</option>
+        <option value="shanxi">山西</option>
+        </select>
+        
+        <select name="city">
+        <option value="shijiazhuang">石家庄</option>
+        <option value="baoding">保定</option>
+        <option value="handan">邯郸</option>
+        <option value="tangshan">唐山</option>
+        </select>
+
+        <p>个人简介</p>
+        <p><textarea name="uinfo" cols="50" rows="10">
+        </textarea></p>
+         用户性别:&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="gender" value='male' checked id='male'>
+        <label for="male">  男</label>
+
+        <input type="radio" name="gender" value='female'
+        id='6'>
+        <label for="6">  女</label>
+        <p>
+            <input type="submit">
+            <input type="reset">
+            <input type="button" value='点击'>
+        </p>
+        <button>登录</button>
+    </form>
+    
+</body>
+</html>

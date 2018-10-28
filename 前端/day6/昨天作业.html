@@ -1,0 +1,67 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        ul,ol{
+/*            取消项目符号*/
+            list-style: none;
+            margin:0;
+            padding:0;
+        }
+
+        ol{
+            display:none;
+        }
+        
+        ul>li:hover+ol{
+            background-color: red;
+            display:block;
+            box-shadow:10px 10px 5px;
+        }
+
+
+        .c1{
+            width:200px;
+            background-color:pink;
+            height:100px;
+            border-radius:50%;
+            box-sizing:border-box;
+        }
+        .c1:hover .c2{
+            background-color: rgba(151,65,84,.7);
+            display:block;
+            box-shadow:10px 10px 5px;
+
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li>北京</li>
+
+        <ol>
+            <li>上海</li>
+            <li>广州</li>
+            <li>深圳</li>
+        </ol>
+    </ul>
+
+    <ul>
+        <li class='c1'>
+        北京
+            <ol class='c2'>
+                <li>上海</li>
+                <li>广州</li>
+                <li>深圳</li>
+            </ol>
+        </li>
+    </ul>
+
+
+</body>
+</html>

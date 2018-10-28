@@ -1,0 +1,23 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src='../jquery.js'></script>
+</head>
+<body>
+    <script type="text/javascript">
+        //创建节点
+        var $h1 = $('<h1>一级标题</h1>');
+        var $p = $('<p></p>');
+        $p.attr('id','p1');
+        $p.html('段落标签')
+        var $span = $('<span>span文本</span>');
+        //添加节点
+        $('body').append($h1);
+        $('body').prepend($p);
+        $h1.after($span);
+        $h1.before($span);
+    </script>
+</body>
+</html>

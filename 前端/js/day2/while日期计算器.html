@@ -1,0 +1,48 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        var year = Number(prompt('请输入年份'));
+        var month = Number(prompt('请输入月份'));
+        var day = Number(prompt('日期'));
+        var s = 0;
+         var isRun = (year % 400 == 0) || (year % 100 != 0 && year % 4 == 0);
+
+         var i = 1;
+         while(i < month){
+            switch(i){
+                case 1:
+                case 3 :
+                case 5　:
+                case 7:
+                case 8:
+                case 10:
+                    s += 31;
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    s += 30;
+                case 2:
+                    s += 28;
+                    if(isRun){
+                        s++;
+                    }
+                    break
+                }
+            i += 1;
+         }
+
+         s += day;
+         console.log(s);
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

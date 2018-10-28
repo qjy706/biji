@@ -1,0 +1,97 @@
+jQuery 使用
+    １．jQuery是一个JS库，封装原生的JS,得到一套完整的方法
+        核心　: write less,do more 
+        版本　：　
+            １．xx.x 版本的jQuery兼容IE6,7,8
+            ２．xx.x 版本的jQuery不再兼容IE 6,7,8
+
+        优点 :
+            1.简化DOM操作，像操作css一样操作DOM
+            2.直接通过选择器设置样式　
+            3.简化JS事件操作
+            4.采用链式调用操作JS   节点
+    ----------------------------------------------
+            5.Ajax技术更加完善
+            6.提供各种便捷的动画处理
+            7.基于jQuery的插件使用更便捷
+            8.可以通过jQuery自定义插件
+
+    2.  jQuery使用
+        １．引入jquery文件
+            <script src=''></script>
+            jquery.js
+
+            如果想要使用jQuery语法，必须将文件引入操作放在代码前面
+
+        2．使用jQuery
+            １．jquery对象　：　实际上是对原生的JS对象进行封装
+                        封装之后可以使用jQuery提供的方法
+
+                注意： 
+                １．jquery对象可以使用jquery提供的方法;
+                    原生js对象可以使用原声js方法，方法不能混用
+                ２．jquery对象和原生JS对象可以共存，也可以相互转换
+
+            ２．工厂函数　$()   这些内建函数都是类对象，当你调用他们时，实际上是创建了一个类实例
+                jquery对象可以使用　jQuery 或者 $　表示　
+                使用　：　
+                    $('div'); //获取div对象　
+
+            3.  原生对象与jquery对象相互转换
+                １．DOM　-> jquery
+                    var h1 = document.get...;
+                    var $h1 = $(h1);  也是一个数组
+
+                2.  jq -> dom
+                    var h1 = $h1[0];
+                    var h1 = $h1.get(0);
+
+        3.  jQuery选择器
+            １．根据提供的选择器到页面获取元素，返回都是jquery对象组成的数组
+            ２．$('选择器')
+            ３．选择器分类
+                １．基础选择器
+                    １．id选择器
+                        $('#id');
+                    ２．类选择器
+                        $('.className');
+                    ３．标签选择器
+                        $('tagName');
+                    ４． 群组选择器
+                        $('selector1,selecor2,....');
+
+                2.  层级选择器
+                    １．后代选择器
+                        $('select1 select2');
+
+                    ２．子代选择器
+                        $('selector1>select2');
+
+                    3.  相邻兄弟选择器
+                        $('selector1+selector2');
+                        匹配紧跟在select1后，满足selector2的元素 
+                        只匹配紧邻selector1的第一个兄弟元素
+                        如果紧邻的第一个兄弟元素不满足selector2,
+                        就匹配失败
+
+                    ４． 通用兄弟选择器
+                        $('selector1~selector2');
+                        匹配满足selector1后面所有的满足selector2的兄弟元素
+
+                        后面可以跟.css.('属性','要添加的属性');
+                        与document对象不同　documentelem.style.
+                3.  筛选选择器 filiter
+                    也叫过滤选择器，需要结合其他选择器使用
+                    １．　:first 
+                        匹配一组元素中的第一个
+                        et:
+                            'p:first'
+
+
+                    2.  :last 
+                        匹配一组元素中的最后一个
+                        selector:last
+
+                    3.  :not
+                        否定筛选,将selector匹配的元素过滤在外
+                        :not(selector)

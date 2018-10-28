@@ -1,0 +1,24 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        //访问对象
+        console.log(location);
+        console.log(location.href);
+        console.log(navigator);
+    </script>
+</head>
+<body>
+    <input type="button" value='百度' onclick="location.href= 'http://www.baidu.com';" target='_blank'>
+
+    <input type="button" value="后退" onclick="history.back()">
+    <input type="button" value="前进" onclick="history.forward()">
+
+    <input type="button" value="刷新" onclick="location.reload(true);">
+
+location.reload(true);
+location.href = 'http://www.baidu.com';    
+</body>
+</html>

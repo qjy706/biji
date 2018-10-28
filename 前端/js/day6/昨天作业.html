@@ -1,0 +1,93 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        table{
+            width:600px;
+            border : 1px solid black;
+            /*边框合并*/
+            border-collapse: collapse;
+        }
+
+        td{
+            border : 1px solid black;
+            text-align: center;
+
+        }
+    </style>
+</head>
+<body>
+    <img src="添加元素练习.png">
+    <p>
+        <input type="text" name="gname" placeholder="商品名称">
+
+        <input type="text" name="gprice" placeholder="商品价格">
+
+        <input type="text" name="gcount" placeholder="商品数量">
+
+        <input type="button" value="增加" onclick="addGoods()">
+    </p>
+    <table>
+        <tbody>
+            <tr>
+                <td>商品名称</td>
+                <td>商品价格</td>
+                <td>商品数量</td>
+                <td>操作</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+    <script type="text/javascript">
+        //实现addGoods函数
+        function addGoods(){
+            //1.获取文本框节点及输入内容
+            //创建节点并添加
+
+            var table = document.getElementsByTagName('table')[0];
+            var gname = document.getElementsByTagName('input')[0].value;
+            var gprice = document.getElementsByTagName('input')[1].value;
+            var gcount = document.getElementsByTagName('input')[2].value;
+
+            //2.创建节点并添加
+            //每次点添加按钮，需要在表格插入一行四个单元格
+            //tr.appendChild(td) 追加操作由父元素执行
+            var tr = document.createElement('tr');
+            //创建第一个单元格　商品名称
+            var tdName = document.createElement('td');
+            tdName.innerHTML = gname;
+
+            var tdPrice = document.createElement('td');
+            tdPrice.innerHTML = gprice;
+
+            var tdCount = document.createElement('td');
+            tdCount.innerHTML = gcount;
+
+
+            //单独单元格追加按钮
+            var tdOper = document.createElement('td');
+            //操作按钮  input(需要设置value属性) button都可以
+            var updateButton = document.createElement('button');
+            updateButton.innerHTML = '修改';
+
+            var deleteButton = document.createElement('button');
+            deleteButton.innerHTML = '删除';
+            //将按钮添加到单元格
+            tdOper.appendChild(updateButton);
+            tdOper.appendChild(deleteButton);
+
+            //添加操作
+            tr.appendChild(tdName);
+            tr.appendChild(tdPrice);
+            tr.appendChild(tdCount);
+            tr.appendChild(tdOper);
+
+            table.appendChild(tr);
+            
+
+
+        }
+    </script>
+</html>

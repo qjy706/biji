@@ -1,0 +1,61 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        *{
+            margin:0;
+
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <span>商品名称</span>
+    <span>商品价格</span>
+    <span>商品数量</span>
+    <input type="button" value="增加" onclick="zengjia();" id = 'd1'>
+    </div>
+    <p></p>
+    <div id='d2'>
+        <table>
+                <tr>
+                        <span>商品名称</span>
+                        <span>商品价格</span>
+                        <span>商品数量</span>
+                </tr>
+        </table>
+    </div>
+
+
+
+
+</body>
+    <script type="text/javascript">
+        var span = document.getElementsByTagName('span');
+        var input = document.getElementById('d1');
+        for(var i = 0;i < span.length;i++){
+        span[i].style.border = '3px solid black';
+        span[i].style.display = 'inline-block';
+        span[i].style.height = '40px';
+        span[i].style.width = '100px';
+        span[i].style.textAlign = 'center';
+        span[i].style.lineHeight ='40px';
+        span[i].style.marginTop = '0.1px solid transparent';
+        }
+
+        input.style.width = '100px';
+        input.style.height = '40px';
+        input.style.border = '3px solid black';
+        input.style.outline = 'none';
+
+        var div = document.getElementById('d2');
+        div.style.border = '3px solid black';
+        div.style.width = '500px';
+        div.style.height = '400px';
+
+
+
+    </script>
+</html>

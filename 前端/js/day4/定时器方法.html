@@ -1,0 +1,37 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        //1开启间歇调用
+        // function f1(){
+        //     alert('间歇调用')
+        // }
+        var i = 0;
+        var timerId = setInterval(function(){
+            alert('间歇调用');i++;if(i == 2){
+            //取消定时器
+            clearInterval(timerId);};
+        },1000);
+
+        // if(i == 2){
+        //     //取消定时器
+        //     clearInterval(timerId);
+        // };
+
+        //超时调用
+        function f1(){
+            alert('超时调用');
+        };
+
+        setTimeout(f1,500);
+        
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

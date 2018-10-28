@@ -1,0 +1,41 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择器冲突</title>
+    <style type="text/css">
+    /*类选择器优先级明显高于标签选择器  id选择器高于类选择器*/
+        #d1{background-color:blue;}
+        div{
+            width:300px;
+            height:300px;
+            background-color:red;
+        }
+        .c1{
+            background-color:green;
+        }
+/* 类选择器和标签选择器组合成子代选择器　10+1=11 */
+        .c1>span{font-size:60px;}
+        /*标签选择器权值1*/
+        span{font-size:16px;}
+        /*　后代选择器是标签选择器相加　1+1=2  优先级更高*/
+        div span{font-size:32px;}
+/* 标签选择器　１　加上10 　等于11*/
+        div:hover{
+            background-color:black;
+        }
+/* 类选择器　＋　伪类选择器　10+10=20 */
+        .c1:hover{background-color:cyan;}
+/* id标签权重　100　+　伪类权重10 = 110 权重高*/
+        #d1:hover{background-color:cyan;}
+        
+
+    </style>
+</head>
+<body>
+<!-- 不推荐行内样式　后期修改很麻烦-->
+    <div class='c1' id='d1'>
+    <span>span</span>
+    </div>
+</body>
+</html>

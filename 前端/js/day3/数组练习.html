@@ -1,0 +1,82 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+    //往数组中存数据　输入exit停止
+
+    function saveData(){
+        var arr = [];
+        do{
+            var input = prompt('请输入数据');
+            //arr[length] 可以作为数组中下一个元素的下标
+            if(input != 'exit')
+            arr[arr.length] = input;
+           }while(input != 'exit');
+        console.log(arr);
+
+    }
+
+
+
+        //遍历数组找最大值
+
+        var arr = [12,3,5,9,456,8,4555,213,456421,31886,2136];
+        var maxNum = arr[0];
+        for(var i = 1;i < arr.length ; i++){
+            if(arr[i] > maxNum){
+                maxNum = arr[i];
+            }
+        }
+        console.log(maxNum);
+
+        //查找下表
+        var arr = [12,45,65,24,78,966,33,-1];
+        var index = ''; // index表示数组下标
+        var input = prompt('请输入数字');
+        for(var i = 0; i < arr.length; i++){
+            if(arr[i] == input){index = i;}
+        }
+
+        if(index == ''){
+            console.log('查询失败');
+        }else{
+            console.log(input + '对应的下标为'+index);
+        }
+
+
+
+        //数组排序　
+        var arr = [64,128,37];
+        if(arr[0] > arr[1]){
+            arr[0] = arr[0]^arr[1];
+            arr[1] = arr[0]^arr[1];
+            arr[0] = arr[0]^arr[1];
+
+        }
+
+        if(arr[1] > arr[2]){
+            arr[1] = arr[1] ^ arr[2];
+            arr[2] = arr[1] ^ arr[2];
+            arr[1] = arr[1]^ arr[2];    
+        }
+
+        if(arr[0] > arr[1]){
+            arr[0] = arr[0]^arr[1];
+            arr[1] = arr[0]^arr[1];
+            arr[0] = arr[0]^arr[1];        
+        }
+
+        //借助中间变量
+        var c = arr[0];
+        arr[0] = arr[1];
+        arr[1] = c;
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

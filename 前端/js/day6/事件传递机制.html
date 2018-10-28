@@ -1,0 +1,34 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        window.onload = function (){
+            var h1 = document.getElementsByTagName('h1')[0];
+
+            var div = document.getElementsByTagName('div')[0];
+
+            h1.addEventListener(
+                'click',function(){
+                    alert('h1被点击')
+                },true);
+
+            div.onclick = function(){
+                alert('div被点击');
+            };
+
+            document.body.addEventListener('click',function(evt){
+                alert('body被点击');
+                // evt.stopPropagation();
+            },true);
+        };
+    </script>
+
+</head>
+<body>
+    <div id="" class="">
+        <h1>一级标题</h1>
+    </div>
+</body>
+</html>

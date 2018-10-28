@@ -1,0 +1,318 @@
+jQuery 使用
+    １．jQuery是一个JS库，封装原生的JS,得到一套完整的方法
+        核心　: write less,do more 
+        版本　：　
+            １．xx.x 版本的jQuery兼容IE6,7,8
+            ２．xx.x 版本的jQuery不再兼容IE 6,7,8
+
+        优点 :
+            1.简化DOM操作，像操作css一样操作DOM
+            2.直接通过选择器设置样式　
+            3.简化JS事件操作
+            4.采用链式调用操作JS   节点
+    ----------------------------------------------
+            5.Ajax技术更加完善
+            6.提供各种便捷的动画处理
+            7.基于jQuery的插件使用更便捷
+            8.可以通过jQuery自定义插件
+
+    2.  jQuery使用
+        １．引入jquery文件
+            <script src=''></script>
+            jquery.js
+
+            如果想要使用jQuery语法，必须将文件引入操作放在代码前面
+
+        2．使用jQuery
+            １．jquery对象　：　实际上是对原生的JS对象进行封装
+                        封装之后可以使用jQuery提供的方法
+
+                注意： 
+                １．jquery对象可以使用jquery提供的方法;
+                    原生js对象可以使用原声js方法，方法不能混用
+                ２．jquery对象和原生JS对象可以共存，也可以相互转换
+
+            ２．工厂函数　$()
+                jquery对象可以使用　jQuery 或者 $　表示　
+                使用　：　
+                    $('div'); //获取div对象　
+
+            3.  原生对象与jquery对象相互转换
+                １．DOM　-> jquery
+                    var h1 = document.get...;
+                    var $h1 = $(h1);  也是一个数组
+
+                2.  jq -> dom
+                    var h1 = $h1[0];
+                    var h1 = $h1.get(0);
+
+        3.  jQuery选择器
+            １．根据提供的选择器到页面获取元素，返回都是jquery对象组成的数组 字符串形式
+            ２．$('选择器')
+            ３．选择器分类
+                １．基础选择器
+                    １．id选择器
+                        $('#id');
+                    ２．类选择器
+                        $('.className');
+                    ３．标签选择器
+                        $('tagName');
+                    ４． 群组选择器
+                        $('selector1,selecor2,....');
+
+                2.  层级选择器
+                    １．后代选择器
+                        $('select1 select2');
+                        满足的所有元素
+
+                    ２．子代选择器
+                        $('selector1>select2');
+                        满足的所有子元素
+
+                    3.  相邻兄弟选择器
+                        $('selector1+selector2');
+                        匹配紧跟在select1后，满足selector2的元素 
+                        只匹配紧邻selector1的第一个兄弟元素
+                        如果紧邻的第一个兄弟元素不满足selector2,
+                        就匹配失败
+
+                    ４． 通用兄弟选择器
+                        $('selector1~selector2');
+                        匹配满足selector1后面所有的满足selector2的兄弟元素
+
+                        后面可以跟.css.('属性','要添加的属性');
+                3.  筛选选择器
+                    也叫过滤选择器，需要结合其他选择器使用  以字符串形式使用
+                    １．　:first 
+                        匹配一组元素中的第一个
+                        et:
+                            'p:first'
+
+
+                    2.  :last 
+                        匹配一组元素中的最后一个
+                        selector:last
+
+                    3.  :not
+                        否定筛选,将selector匹配的元素过滤在外
+                        :not(selector)
+
+                    4.  :odd
+                        匹配偶数行对应的元素
+
+                    ５． :even
+                        匹配奇数行对应的元素
+
+                    6.  :eq(index)
+                        匹配下标等于index的元素
+
+                    7.  :lt(index)
+                        匹配下标小于index的元素
+
+                    8.  :gt(index)
+                        匹配下标大于index的元素
+
+                4   属性选择器
+                    1. 根据属性名筛选元素
+                        $('[attribute]')
+                    2.  根据属性名和属性值筛选元素
+                    $('[attribute = 'value']'')
+
+                    3.  匹配属性名以指定字符开头的元素
+                        $('[attribute^=value]')
+                        ^表示以...开头
+
+                    4.  匹配属性值以指定字符结尾的元素
+                        $('[attribute$=value]')
+                        $表示以...结尾
+ 
+                    5.  匹配属性值中包含指定字符的元素
+                        $('[attribute*=value]')
+
+                    6.  匹配属性名不等于指定属性值的元素
+
+                    $('[attribute != value]')
+
+                5.  子元素过滤选择器
+                    １．:first-child
+                        匹配属于父元素中的第一个子元素
+
+        //在所有子元素中第一个是h1的元素全部匹配出来
+$('h1:first-child').css('border','1px solid blue');
+                        子元素第一个一定要是该元素
+
+
+                    2.  :last-child
+                        匹配属于父元素中最后一个子元素
+                        最后一定要是该元素
+
+                    ３．　:nth-child(n) 
+                        匹配第几个子元素  从１开始算
+                        可以传入关键字或表达式做参数传递　
+$('li:nth-child(odd)').css('color','red');
+
+                4.  jquery
+                    1.内容操作
+                        1.html()
+                            设置或读取jquery对象中的HTML内容，类似于原生JS　innerHTML
+
+                        2.text()
+                            设置或读取jquery对象中文本内容
+                            类似原生JS innerText
+
+                        3. val()
+                            设置或读取表单对象的value值
+
+                    ２．属性选择器
+                        １．attr()
+                            读取或设置jquery对象的属性
+                            et:
+                                $('div').attr('id');
+                                设置属性值
+                                $('div').attr('class','c1')
+
+
+                                js中
+                                var.attr = 
+                                var.getAttribute(xxx)=
+
+                        ２．　删除属性
+                                $('h1').removeAttr('id');
+
+                    3.  样式操作
+                        １．attr()
+                            为元素添加id或class属性，对应选择器样式
+
+                            attr('id','d1')
+                            js中是setAttribute()
+
+
+                        ２．addClass()
+                            为元素的class属性赋值，匹配选择器样式
+                            $('h1').attr('id','d1');
+
+                        ３．removeClass('')
+                            移除指定的class属性值
+                            参数可以省略，省略之后表示清空类选择器
+
+                        ４．toggleClass() 
+                            切换样式，给出class属性值，如果元素存在指定的类名，则移除，不存在则添加
+
+                            $('p').toggleClass('c1');
+
+                        5.  css()
+                            设置或读取元素css属性
+                            １．css('width')
+                                读取元素的宽度
+                            ２. css('width','300px');
+                                设置元素的样式
+                                可以链式设置　css.css.css..
+                            ３．css(json对象)
+                                为元素设置一组css样式
+                                $('h1').css({
+                                    'color':'red',
+                                    'width':'300px'; 
+                                })
+
+                    4.  节点查询
+                        １．children() / children('selector')
+                        获取jquery对象的所有子元素或者获取指定选择器匹配的所有子元素
+                            注意：　只包含直接子元素，不考虑后代
+
+                        ２．find('selector')
+                            获取满足selector的所有后代元素
+
+                        ３．prev() / prev('selector') 可以省略
+                            获取前一个兄弟元素或者获取前一个兄弟元素,必须满足selector 
+
+                        ４．next() / next('selector')　可以省略
+                            获取后一个兄弟元素或者获取最后一个兄弟元素，必须满足selector 
+
+                        5.  siblings() / siblings('selector')
+                            获取前后所有的兄弟元素或者满足selector的所有兄弟元素
+
+                        6.  parent()
+                            获取jquery对象的父元素
+                    5.  节点操作
+                        １．创建节点
+                            var $h1 = $('<h1>一级标题</h1>');
+                            var $h2 = $('<h1></h1>');
+                            h2.html();
+                            h2.attr();
+                            h2.css();
+
+                        2.  添加节点
+                            1.  以子元素的形式插入到页面中
+                                １．$parent.append($h1);
+                                将新创建的对象作为最后一个子元素插入
+
+                                ２．$parent.prepend($h2);
+                                将新创建的对象作为第一个子元素添加
+
+                            ２．以兄弟元素的形式插入到页面中
+                                1.  $obj.after($h1);
+                                    将新创建的对象作为$obj的下一个兄弟元素插入
+
+                                ２．$obj．before($h2);
+                                    将新创建的对象作为$obj的前一个兄弟元素插入
+
+                            ３．不需要通过父节点
+                                $obj.remove();
+                                移除$obj 
+
+                    6   事件操作
+                        １．页面加载完毕之后再执行　
+                            原生JS : 
+                                window.onload = function(){}
+                            jquery :
+                                1.$(document).ready(function(){});
+
+                                2. $().ready(function(){});
+
+                                3. $(function(){});
+                            原生onload事件与jquery的ready()
+                            方法区别
+                            １．原生的onload事件多次使用时，前面的会被覆盖不执行，需要做特殊判断和处理，而ready方法没有此问题，可以重复调用多次，按顺序依次执行
+
+                            ２．原生的onload事件会等待文档中DOM树及所有资源都加载完毕之后才执行，而ready方法会等文档DOM树加载完毕后就执行
+
+                        ２．jquery事件绑定
+                            １．使用bind()
+                $obj.bind('事件函数名',function(){})
+                    注意　: 省略on前缀
+                        et:
+                    $('div').bind('click',function(){})
+
+                            2.  使用事件函数
+                            $obj.事件名称(function(){})
+                            注意：省略on前缀
+                                et:
+                                    $('div').click(function(){})
+
+                            3.  事件对象及属性
+                                １．获取事件对象与原生方法一致
+                                    都是以参数形式自动转入
+                    $('div').click(function(evt){console.log(evt);});
+
+                                2.  事件对象的属性保持一致　
+                                target
+                                offsetX
+
+                            4   this对象
+                                当前函数或方法的调用对象
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

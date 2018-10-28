@@ -1,0 +1,25 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="" class="">
+        
+    </div>
+
+    <input type="text" name="uname">
+    <input type="button" value='传值' onclick="show()">
+    
+</body>
+    <script type="text/javascript">
+        function show(){
+            var div = document.getElementsByTagName('div')[0];
+            var input = document.getElementsByName('utext')[0];
+
+            div.innerHTML = '<h1>'+input.value+'</h1>';
+        }
+    </script>
+</html>

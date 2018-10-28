@@ -1,0 +1,45 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        var s1 = '星期一';
+        var s2 = 'hello';
+        var s3 = new String('hello world');
+        //获取指定字符下标
+        var index1 = s1.indexOf('一');
+        console.log(index1);
+        var index2 = s2.indexOf('ll');
+        console.log(index2);
+
+        var index2 = s2.indexOf('a');
+        console.log(index2);
+
+        //最后一次出现的下标位置
+        var index4 = s3.lastIndexOf('l');
+        console.log(s3,index4);
+
+        var index5 = s3.lastIndexOf('ll',5);
+        console.log(s3,index5);
+
+        var index6 = s2.indexOf('1',5);
+        console.log(index6);
+
+        var index7 = s2.lastIndexOf('l');
+        console.log(index7);
+
+
+        //下标截取字符串
+        var s4 = 'hello';
+        var res1 = s4.substring(0,1);
+        console.log(res1);
+
+        var res2 = s4.substring(1,0);
+        console.log(res2);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

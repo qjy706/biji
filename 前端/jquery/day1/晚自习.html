@@ -1,0 +1,61 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src='../jquery.js'>
+    </script>
+    <script type="text/javascript">
+        $().ready(function(){
+            console.log($('p'))
+            var p = $('p')[0];
+            console.log(p);
+            console.log($('div p'));
+            console.log($('div>p'));
+            console.log($('div+h1'));
+            console.log($('div~h1'));
+            console.log($('[id=d1]'));
+            console.log($('[id*=1]'));
+            console.log($('h1:first-child').css('border','1px solid blue'));
+            console.log($('p:nth-child(3)').html());
+
+            $('p:nth-child(2)').css('border','1px solid blue');
+
+            $('p:nth-child(3)').text('666');
+            $('p:nth-child(2)').attr('id','d1');
+            console.log($('[id=d1]'));
+            // var $p = $('p');
+            // console.log($p[1].innerHTML)
+            $('p').css({
+                'color':'red'
+            })
+
+            var $h1 = $('<input text="button"></input>');
+            $('div').append($h1);
+
+            $('p').bind('click',function(){
+                alert('hello');
+            });
+            $('h1').click(function(){
+                alert('sadsa');
+            });
+        })
+    </script>
+</head>
+<body>
+    <div id='d1'>
+        <h1 class="h1">一级标题</h1>
+        <p>我是好人</p>
+        <p>我是坏人</p>
+        <p>我是变性人</p>
+        <h1 class="h1">一级标题2</h1>
+    </div>
+
+    <h1>666</h1>
+    <h1>777</h1>
+    <h1>888</h1>
+    <h1>999</h1>
+    <input type="text" name="">
+
+</body>
+</html>

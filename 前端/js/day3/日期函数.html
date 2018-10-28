@@ -1,0 +1,75 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        var year = Number(prompt('输入年份'));
+        var month = Number(prompt('输入月份'));
+        var day = Number(prompt('输入日期'));
+        var dayNum = 0;
+        function isRun(year){
+            var c =(year % 400 == 0) || (year % 100 != 0 && year % 4 == 0);
+            return c;
+        }
+
+        function years(year){
+            var c = isRun(year);
+            for(var i = 1990; i < year; i ++){
+                dayNum += 365;
+                if(c){
+                    dayNum ++;
+                    }
+    
+                                            }
+            return dayNum;
+                }
+
+        function months(month,year){
+            var c = isRun(year);
+         for(var j = 1; j < month ; j++){
+                switch(j){
+                    case 1:
+                    case 3:
+                    case 5:
+                    case 7:
+                    case 8:
+                    case 10:
+                        dayNum += 31;
+                        break;
+                    case 4:
+                    case 6:
+                    case 9:
+                    case 11:
+                        dayNum += 30;
+                        break
+                    case 2 :
+                        dayNum += 28;
+                        if(c){
+                            dayNum ++;
+                        }
+                }
+            }
+            return dayNum;
+        }
+
+        function days(month,year,day){
+            var y = years(year);
+            var c = months(month,year);
+            var c = y + c + day;
+            alert(c);
+        }
+
+
+
+
+    </script>
+
+
+
+</head>
+<body>
+    
+    <button onclick="days(month,year,day);">日期</button>
+</body>
+</html>

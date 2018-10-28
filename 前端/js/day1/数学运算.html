@@ -1,0 +1,41 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        //数学运算
+        var a = 10+10;
+        var a1 = 10+'10'; //1010 字符串＋表示拼接　
+        var a2 = 10 + true; //11　数字与布尔值　布尔变成数值
+        var a3 = '10' + false; //'10false'　字符串相加
+        var a4 = 10 + undefined;　
+        var a5 = 10 + null;
+        var a6 = 10 + NaN;
+        console.log(a4,a5,a6);
+
+        var b = 10-6; 
+        //4 将数字字符串转化为number 再进行数学运算
+        var b1 = '10' - 4; //4
+        var b2 = '10' - '6'; //4
+        var b3 = '10a' - 6; //NaN 
+        var b4 = undefined - 3;
+        console.log(b1,b2,b3,b4);
+
+
+        var c = 10 * 10; //100
+        var c1 = '10'*10; //100
+        var c2 = '10' * '5';
+        var c3 = NaN　* 5 ; 
+        console.log(c1,c2,c3);
+
+        var n = 10-true;
+        console.log(n)
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

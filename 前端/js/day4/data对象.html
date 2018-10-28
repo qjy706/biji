@@ -1,0 +1,54 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        //1.创建日期对象
+        //获取当前时间
+        var date1 = new Date();
+        console.log(date1,typeof date1);
+
+        var date2 = new Date('2011/11/11');
+        var date4 = date2.toString()
+        var date3 = new Date('2011/11/11 11:11:11');
+        console.log(date2,date3,date4);
+
+        //获取毫秒对象
+        console.log(date2.getTime());
+        console.log(date2.getTime());
+
+
+        //获取时间分量
+        var year = date1.getFullYear();
+        var month = date1.getMonth();
+        var dayNum = date1.getDate();
+        var weekNum　= date1.getDay();
+        console.log(year,month,dayNum,weekNum);
+
+        var hours = date1.getHours();
+        var minutes = date1.getMinutes();
+        var seconds = date1.getSeconds();
+        console.log(hours);
+        console.log(minutes);
+        console.log(seconds);
+
+
+        //设置日期的显示方式
+        var r1 = date1.toString();
+        var r2 = date1.toLocaleString();
+        var r3 = date1.toLocaleDateString();
+        var r4 = date1.toLocaleTimeString();
+        console.log(r1);
+        console.log(r2);
+        console.log(r3);
+        console.log(r4);
+
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

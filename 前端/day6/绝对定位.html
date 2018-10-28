@@ -1,0 +1,37 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        #box{
+            width:500px;
+            height:500px;
+            background-color:pink;
+            margin: 0 auto;
+            position:relative;
+
+        }
+/*祖先元素已经定位　则会在父元素中进行偏移*/
+        #d1{
+            width:200px;
+            height:200px;
+            background-color:red;
+            position:absolute;
+/*            top:50px;
+            left: 50px;*/
+            right: 0;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" class="">
+    <div id="d2">
+    <div id='d1' class="">
+    </div>
+    </div>        
+    </div>
+    
+</body>
+</html>

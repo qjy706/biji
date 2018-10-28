@@ -1,0 +1,35 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+
+        function date(){
+            var data = new Date();
+            var hours = data.getHours();
+            var minutes = data.getMinutes();
+            var seconds = data.getSeconds();
+            // console.log(typeof hours);
+            // console.log(hours+':'+minutes+':'+seconds);
+            document.write(hours+':'+minutes+':'+seconds+'<br>')
+
+        }
+
+
+        function start(){
+            a =　window.setInterval(date,1000);
+
+        }
+
+
+        function end(){
+            clearTimeout(a);
+            }    
+    </script>
+</head>
+<body>
+    <button onclick="start()">开始</button>
+    <button onclick="end()">结束</button>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src='../jquery.js'>
+        
+    </script>
+</head>
+<body>
+    <h1 id="d1">
+        <p>
+            这就是<span>灌篮</span>
+        </p> 
+    </h1>
+    <p class="c1">李易峰</p>
+    <p>周杰伦</p>
+    <p>林书豪</p>
+    <p class="c1">郭艾伦</p>
+    <p>冯绍峰</p>
+    <p>赵丽颖</p>
+    <p>奇葩说</p>
+    <input type="button" value=':first' onclick="firstSel();">
+
+    <input type="button" value=':last' onclick="lastSel();">
+
+    <input type="button" value=':not' onclick="notSel();">
+
+    <input type="button" value=':odd' onclick="odd();">
+
+    <input type="button" value=':even' onclick="even();">
+
+    <input type="button" value=':eq' onclick="eq();">
+
+    <input type="button" value=':lt' onclick="lt();">
+
+    <input type="button" value=':gt' onclick="gt();">
+
+    <script type="text/javascript">
+        function firstSel(){
+            $('.c1:first').css('color','red');
+        }
+
+        function lastSel(){
+            $('p:last').css('color','green');
+        }
+
+        function notSel(){
+            $(':not(p)').css('border','1px solid blue');
+        }
+
+        function odd(){
+            $('p:odd').css('color','red');
+        }
+
+        function even(){
+            $('p:even').css('color','green');
+        }
+
+        function eq(){
+            //匹配p这一组元素中下标为3的元素 
+            // $('p:eq(3)').css('background','red');
+            //关键字匹配
+            $('p:eq(even)').css('background','red');
+            var index = 3;
+            $('p:eq('+index+')')
+        }
+
+        function lt(){
+            $('p:lt(3)').css('background','green');
+        }
+
+        function gt(){
+            $('p:gt(3)').css('background','orange');
+        }
+    </script>
+    
+</body>
+</html>

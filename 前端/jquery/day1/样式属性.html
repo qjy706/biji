@@ -1,0 +1,45 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src='../jquery.js'></script>
+    <style type="text/css">
+        #d1{
+            color:red;
+        }
+
+        .c1{
+            color:green;
+        }
+
+        .c2{
+            border:1px solid blue;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>一级标题</h1>
+    <p>段落标签</p>
+    <input type="button" value="toggle" onclick="toggleFun()">
+
+    <script type="text/javascript">
+
+        $('h1').attr('id','d1');
+        // $('p').addClass('c1 c2');
+        $('p').addClass('c1');
+        $('p').addClass('c2');
+        $('p').addClass('c1').addClass('c2');
+        $('p').removeClass('c1');
+        $('p').removeClass();
+
+
+
+        function toggleFun(){
+            $('p').toggleClass('c1');
+        }
+    </script>
+</body>
+</html>

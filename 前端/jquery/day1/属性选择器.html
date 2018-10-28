@@ -1,0 +1,26 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src='../jquery.js'></script>
+</head>
+<body>
+    <h1 id='d1'>一级标题</h1>
+    <p class="c1">段落标签</p>
+    <h2 id='d2'>二级标题</h2>
+    <p class="d1">段落标签</p>
+    <h2 id='ad2'>aaa</h2>
+    <script type="text/javascript">
+        //根据属性选择器匹配元素
+        $('[id]').css('color','red');
+        $('[id="d1"]').css('color','red');
+        $('[id^=d]').css('font-size','16px');
+        $('[class$=1]').css('font-size','32px');
+        $('[id*=d]').css('background','orange');
+        //text-decoration 
+        $('[id!=d1]').css('text-decoration','underline');
+    </script>
+    
+</body>
+</html>

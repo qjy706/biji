@@ -1,0 +1,27 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        window.onload = function(){
+            var div = document.getElementsByTagName('div')[0];
+            div.onclick = function(evt){
+                console.log(evt);
+                
+                console.log(evt.target);
+            }
+        };
+
+        window.onkeydown = function(e){
+            console.log(e);
+            console.log(e.target);
+        }
+    </script>
+</head>
+<body>
+    <div id="" class="">
+        div文本内容
+    </div>
+</body>
+</html>

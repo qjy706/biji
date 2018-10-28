@@ -1,0 +1,28 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后代选择器</title>
+    <style type="text/css">
+    /*表示div作为父元素 查找span*/
+        div span{
+            color: red;
+        }
+    /*只匹配div直接子元素的span*/
+        div>span{background-color: gold;
+            font-size: 24px;}
+    </style>
+</head>
+<body>
+    <div>
+        <b>div->b</b><br>
+        <span>div->span</span>
+        <!--span p兄弟元素-->
+        <p>
+            你好<span>
+                div->p->span
+            </span>再见
+        </p>
+    </div>
+</body>
+</html>

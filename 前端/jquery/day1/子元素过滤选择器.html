@@ -1,0 +1,45 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src='../jquery.js'></script>
+</head>
+<body>
+    <h1>body中第一个h1</h1>
+    <div id='' >
+        <h1>div中的第一个h1</h1>
+        <h1>div中的第二个h1</h1>
+    </div>
+    <h1>body其他h1</h1>
+    <div id='' >
+        <h1>div中的第三个h1</h1>
+        <h1>div中的第四个h1</h1>
+    </div>
+
+    <ul>
+        <li>1111</li>
+        <li>2222</li>
+        <li>3333</li>
+        <li>4444</li>
+        <li>5555</li>
+        <li>6666</li>
+    </ul>
+    <script type="text/javascript">
+        $('h1:first').css('color','red');
+        //在所有子元素中第一个是h1的元素全部匹配出来
+        $('h1:first-child').css('border','1px solid blue');
+        // $('div>h1').css('border','1px solid green');
+        $('h1:last').css('color','green');
+        $('h1:last-child').css('font-size','16px');
+        $('li:nth-child(1)').css('color','red');
+        //对应1,3,5行元素
+        $('li:nth-child(odd)').css('color','green');
+        //对应2 4 6行的元素
+        $('li:nth-child(even)').css('color','red');
+        
+
+    </script>
+    
+</body>
+</html>

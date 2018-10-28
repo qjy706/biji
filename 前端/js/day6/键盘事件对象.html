@@ -1,0 +1,24 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        window.onload = function(){
+            var input = document.getElementsByTagName('input')[0];
+            input.onkeydown = function(evt){
+                console.log('keydown',evt.key,evt.which);
+            };
+
+            input.onkeypress = function(evt){
+                console.log('keypress',evt.key,evt.which);
+            };
+
+        };
+    </script>
+</head>
+<body>
+    <input type="text" name="">
+    
+</body>
+</html>

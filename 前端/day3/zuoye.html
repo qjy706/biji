@@ -1,0 +1,56 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作业</title>
+</head>
+<body>
+    <h1>增加管理员</h1>
+    <p></p><form>
+    <p>姓名&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name='utext'　maxlength=10>
+    &nbsp;&nbsp;&nbsp;10个字符以内</p>
+    <p></p>
+
+    <p>密码&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name='upd' maxlength=10>
+    &nbsp;&nbsp;&nbsp;10个字符以内</p>
+
+    <p>性别:&nbsp;&nbsp;&nbsp;
+    <input type="radio" name="xingbie" value='male' id='6'><label for="6">男</label>
+    <input type="radio" name="xingbie" value='female' id='7'><label for="7">女</label>
+    </p>
+    <table width="400px" height='150px'>
+        <tr>
+            <td rowspan='2'>
+                角色
+            </td>
+            <td>
+            <input type="radio" name="super" value='superclient' id='super'><label for="super">超级管理员</label>
+            </td>
+            <td rowspan="2" align="right">至少选择一个角色</td>
+            
+        </tr>
+        <tr>
+            <td>
+            <input type="radio" name="super" value='zhangdanguanliyuan' id='zhanghao'><label for="zhanghao">账号管理员</label>
+            </td>
+        </tr> 
+    </table>
+    <p>头像:&nbsp;&nbsp;&nbsp;&nbsp;<input type="file" name="uimg"></p>
+    <p></p>
+    <p></p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="submit" name="save" value="保存"></input>
+        <input type="reset">
+    </p>
+    <textarea name='uinfo' cols="50" rows="5"></textarea>
+    <p><button>按钮</button></p>
+    <input type="button" value="点我">
+
+    <label for="female">男</label>
+    <label for="male">男</label>
+    <label for="male">男</label></form>
+
+
+
+</body>
+</html>

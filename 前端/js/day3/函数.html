@@ -1,0 +1,47 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+    //无参数　无返回值
+        function f1(){
+            console.log('f1');
+        }
+        f1();
+
+        function f2(a){
+            return a*2;
+        }
+
+        var a = f2(3);
+        console.log(a);
+
+
+        // 有参数　有返回值
+        function sum(a,b){
+            // var c = a + b;
+            // return c;
+            console.log(b);
+            return a + b ;
+        }
+
+        var c = sum(10,20);
+        console.log(c);
+
+
+        //prompt也是一个函数　
+        // var input = prompt('请输入');
+
+        //参数不匹配的情况
+        var r1 = sum(10);
+        console.log(r1);
+
+        var r2 = sum(10,20,30);
+        console.log(r2);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

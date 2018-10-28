@@ -1,0 +1,66 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练习</title>
+    <style type="text/css">
+        div{width: 200px;
+            height: 200px}
+        #d1{
+            background-color: pink;
+            width: 200px;
+            height: 200px;
+
+        }
+        .c1{background-color: green;}
+        span{color:red;}
+        div span{color:rgb(125,44,33);}
+        div>span{color:green;}
+        #d1:hover{background-color:red;}
+        #d1:active{background-color:gold;}
+        #d4{
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+        }
+        .p1{
+            width: 50%;
+            height: 50%;
+            background-color: grey;
+        }
+        .c5{
+            width: 200px;
+            height: 170px;
+            background-color: grey;
+            overflow: auto;
+        }
+        .c6{
+            border:20px double red;
+            height: 150px
+        }
+        .c2{
+            width:0;
+            height:0;
+            border-top:20px solid red;
+            border-right:20px solid rgba(0,0,0,0);
+            border-bottom:20px solid transparent;
+            border-left:20px solid transparent;  
+            }
+
+    </style>
+</head>
+<body>
+    <div class="c1" id='d1'><span>span</span></div>
+    <div class="c2" id='d2'></div>
+    <div class="c3" id="d3"></div>
+    <div class='c4' id='d4'><p class="p1">asdasd</p></div>
+    <div class='c5'>
+    内容溢出的处理，默认可见内容溢出的处理，
+    内容溢出的处理，默认可见内容溢出的处理，
+    内容溢出的处理，默认可见内容溢出的处理，
+    内容溢出的处理，默认可见内容溢出的处理，
+    内容溢出的处理，默认可见内容溢出的处理a
+    </div>
+    <div class='c6'></div>
+</body>
+</html>

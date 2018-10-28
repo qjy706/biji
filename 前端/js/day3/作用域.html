@@ -1,0 +1,24 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        var a = 100;
+        b = 200;
+        var c = 400;
+        function fn(){
+            
+            var c = 300;
+            //所有省略var的变量都是全局变量
+            d = 400;
+            console.log(a,b,c,d);
+        }
+        fn();
+        console.log(a,b,c,d);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

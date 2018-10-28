@@ -1,0 +1,48 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text" name="uname" id = 'd1'>
+    <input type="text" name="uname1" class='c1'>
+    <input type="button" value='转换' onclick="set();">
+    <div>
+        
+    </div>
+
+
+
+</body>
+
+    <script type="text/javascript">
+        var a =　document.getElementById('d1');
+        
+        var c = document.getElementsByName('');
+        
+        
+        
+
+        function set() {
+           var b = document.getElementsByTagName('div')[0];
+           var d = document.getElementsByClassName('c1')[0];
+           b.innerHTML = d.value;
+
+           var body = document.getElementsByTagName('body')[0];
+           // b.setAttribute('id','d2');
+           // console.log(b);
+           // b.removeAttribute('id');
+           // console.log(b);
+           b.id = 'd2';
+           console.log(b);
+           b.style.color = 'red';
+           console.log(b.parentNode);
+           console.log(b.childNodes);
+           var div = document.createElement('div');
+           div.innerHTML = 'asdasd';
+           body.appendChild(div);
+        }
+    </script>
+</html>

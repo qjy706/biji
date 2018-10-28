@@ -1,0 +1,36 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src='../jquery.js'></script>
+</head>
+<body>
+    <div id="box">
+        <h2>二级标题</h2>
+        <h1>一级标题</h1>
+        <p>
+            段落标签
+            <span>p -> span</span>
+        </p>
+        <span>box -> span</span>
+        <h2>二级标题</h2>
+    </div>
+
+</body>
+    <script type="text/javascript">
+        console.log($('[id=box]').children());
+        console.log($('[id=box]').children('h1'));
+        console.log($('#box').find('span'));
+
+
+        //兄弟元素
+        //prev next前后查找之查找一个平级的兄弟元素
+        console.log($('p').prev());
+        console.log($('p').next());
+        console.log($('p').prev('h2'));
+        console.log($('p').next('h2'));
+        $('p').siblings('').css('color','red');
+        console.log($('p').parent());
+    </script>
+</html>

@@ -1,0 +1,39 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        document.write('head-document.write')
+    </script>
+</head>
+<body>
+
+    <h1 onclick="alert('元素绑定方式');">点击</h1>
+
+    <script type="text/javascript">
+        // onclick=alert('asdad');
+        prompt("请输入姓名");
+        console.log("控制台输出");
+        document.write('document.write方法');
+    </script>
+
+    <div onclick="document.write('haha');">
+    点击div
+    </div>
+
+
+
+    <div onclick="prompt('请输出');">
+    点击1
+    </div>
+
+<!-- 
+    document.write()可以添加标签 -->
+
+    <script type="text/javascript">
+        document.write('<h2>二级标题</h2>');
+    </script>
+    
+</body>
+</html>

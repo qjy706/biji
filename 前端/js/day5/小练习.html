@@ -1,0 +1,28 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+
+</head>
+<body>
+    <a href="http://www.baidu.com">超链接</a>
+
+    <input type="button" value="修改" onclick="xiugai()">
+    
+</body>
+    <script type="text/javascript">
+        //获取元素节点
+        function xiugai(){
+            var alink = document.getElementsByTagName('a')[0];
+
+            var b = document.getElementsByTagName('href');
+            //修改链接地址
+            alink.href = 'http://www.tmooc.cn';
+            alink.target = '_blank';
+        }
+
+
+    </script>
+</html>

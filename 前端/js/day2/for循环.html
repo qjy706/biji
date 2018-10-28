@@ -1,0 +1,28 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        //跑十圈
+        var a = Number(prompt('请输入大于2的数字'));
+        var isSu = true;//设置一个点，记录是否是布尔值
+        for (var i = 2 ; i < a; i ++){
+            if(a % i == 0){
+                isSu = false;
+                break;
+                //console.log(a+'不是素数');
+            }
+        }
+
+        if(isSu){
+                console.log(a+'是素数');
+            }else{
+                console.log(a+'不是素数');
+            }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

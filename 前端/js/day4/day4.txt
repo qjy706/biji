@@ -1,0 +1,375 @@
+JS的内置对象
+    １．对象：
+        对象由属性和方法组成，可以使用点语法访问对象的属性和方法　
+        et:
+            var arr = [1,2,3];
+            arr.length; //访问属性
+            arr.push(100); //访问方法
+
+    2.  对象分类：
+        １．内置对象　
+            由ECMAScript 规定，例如数组，字符串，Math Date ...
+
+        ２．BOM对象　
+            浏览器对象模型，由浏览器各大长制定，提供一系列与浏览器操作相关的对象
+
+        ３．DOM对象
+            文档对象模型，提供一系列规范的操作文档的对象
+
+    ３．　内置对象分类
+        １．String 对象
+            １．创建　：
+                var str1 = 'hello';
+                var str2 = new String('');
+                var a = new String('');
+            2.属性和方法　：
+                １．属性：
+                    length  : 获取字符串长度　
+                    var s = 'hello'
+                    var s2 = 'hello';
+                    s.length;
+
+                2.  方法：
+                    １．英文字符串的大小写转换　当前字串中
+                        １．toUpperCase()转换成全大写字母
+                        ２．toLowerCase()转换成全小写字母
+                        注意：
+                            该方法会返回新的字符串，不影响原始字符串
+                        练习：
+                            １．创建数组，保存数字和字母
+                            ２．生成随机６位验证码
+                                从数组中随机抽取６位元素，
+                                组成验证码
+
+                    typeof a == 'number'
+
+                            随机数　：　Math.random()
+                                    生成[0,index+1) 之间的随机数　
+
+                            3.将生成的验证码提示给用户输入
+
+                            ４．验证码用户输入是否正确
+                                在不区分大小写情况下，只要输入正确，toLowerCase()都提示'输入成功',
+
+                    2.  获取字符或字符编码
+                        1.获取指定位置的字符
+                            charAt(index)
+                        2.  字符编码
+                            charCodeAt(index);
+
+
+                    3 检索字符串
+                        １．indexOf(value[,fromIndex])  indexof  typeof
+                            作用：　获取指定字符的下标
+                            参数：
+                                １．value : 必填，设置查找字符
+                                ２．fromIndex : 可选参数，设置从哪个下标为止开始查找，默认值为0
+
+                            返回值：
+                                返回value第一次出现的下标位置,查找失败，
+
+                                返回-1
+
+                        2   lastIndexOf(value[,fromIndex])
+                            作用　：　查找指定字符的下标
+                            返回值　：　value最后一次出现的下标
+
+                        注意　：
+                            大小写敏感　
+
+\
+                    ４．　截取字符串
+                        1.substring(startIndex,endIndex)
+                        根据下标截取字符串
+                        et:
+                            var a = 'hello';
+                            a.substring(0,1);
+                            返回下标范围内的字符串　
+
+                            注意：
+                                endIndex可以省略，省略时，截止字符串末尾　
+
+                            练习：
+                                从给定的邮箱：
+                                zhangsan@sina.com
+                                1.提取用户名
+                                2.提取服务商
+                                a[0,indexOf(@)];
+                                indexOf(@);
+
+                                a[indexOf(@),indexOf(.)];
+                                indexOf(.)
+
+
+
+                            练习２　
+                                从给定的身份证号，提取出生年月日
+                                100233186012057663
+                                substring(4,13)
+
+
+                    5.  分割字符串
+                        1.  split(param);
+                            参数：　指定分割符
+                            返回值：返回数组，存放分割完成后的小字符串
+
+                            注意：
+                                指定的分割符必须是字符串中存在字符，否则不会对原字符串分割
+
+                            练习　：　
+                                1045_5&2033_6&0112_10
+
+
+                    6.  模式匹配
+                        １．配合正则表达式实现查找字符串的作用
+                        ２．正则表达式
+                            语法　：　/正则格式/修饰符  
+                            修饰符：
+                                i : ignorecase 忽略大小写
+                                g : global 全局匹配
+
+                                et:
+                                    var reg1 = /长高/ig;
+                                    var reg2 = /\d/ig;
+                            练习　：　
+                                str.match(正则/子字符)
+                                str.replace(正则,newString)
+                                '我想长高，我要长高，一定要长高'
+
+                                长高　　变帅
+
+                        3.  字符串方法
+                            １．replace(substr/RegExp,newStr)
+                                根据给出的substr或RegExp查找对应字符串　并将其替换为newStr;
+                                返回值：
+                                        返回替换后的新字符串
+                                        不影响原始数组
+
+                            2.  match(substr / RegExp)
+                                根据指定的substr或RexExp匹配对应字符串
+                                返回数组，数组中存放匹配结果
+var a = '/\d{6}/ig';
+
+        2．正则表达式对象　RegExp
+            RegExp 
+            1.语法　：　
+                var reg1 = /微软/ig;
+                var reg2 = new RegExp('匹配模式'，'修饰符')；
+
+            ２．属性
+                lastIndex : 可读可写，表示下一次匹配的起始索引
+
+                类似于静态变量，第一次用完之后　都会报错　
+                注意：
+                    １．默认情况下，正则表达式对象不能重复调用方法，如果重复调用，结果会出错
+                        由于lastIndex　会保存再一次匹配的起始下标
+                        ，重复调用时，不能保证每次都从下标0开始验证
+                        可以手动调整为0 
+                    var reg4 = new RegExp('\\d{6}','ig');
+                    var str2 = '123132123';
+                    var r1 = reg4.test(str);
+                    reg4.lastIndex = 0; 
+                    var r2 = reg4.test(str2);
+
+                    ２．只有正则对象设置全局匹配 g ，该属性才起作用
+
+
+                    ３．方法 :
+                        test() : 验证字符串中是否存在满足正则匹配模式的内容
+                                存在则返回　true ,不存在则返回false
+
+                        参数：
+                            要验证的字符串
+
+        ３．　Math对象　
+            １．Math对象主要提供一些列数学运算的方法
+            ２．属性　:  
+                1.  圆周率　：　Math.PI    toFixed()
+                2.  自然对数　：　Math.E  
+
+            3.  方法　：
+                １．三角函数
+                    Math.sin(x) 
+                    Math.cos(x)
+                    Math.tan(x)
+                    注意　：　参数为角度　
+                    角度换算
+                        Math.PI / 180 : Math,PI 也可以表示180度　
+
+                ２．计算函数
+                        Math.sqrt(x); 表示对x 开平法
+                        Math.log(x); 求对数
+                        Math.pow(x,y); 求x的y次方
+
+                3.  数值操作
+                        Math.abs(x); 求x的绝对值
+                        Math.max(x1,....x);  求一组数据的最大值
+                        Math.min(x1,....x); 　求一组的最小值
+
+                    最常用的操作　：
+                        　
+                    Math.random();生成0-1之间的随机数  Math.random()*n  0-n之间的数字
+                    Math.ceil(x); 对x向上取整，武略小数位，整数位+1
+                    Math.floor(x); 对x向下取整，舍弃小数位，保留整数位
+
+                    Math.round(x); 四舍五入的方法
+
+        4.  data对象
+            １．提供操作日期和事件的方法
+            ２．创建Date对象
+                １．var data1 = new Date(); //获取当前的日期时间
+                ２，创建指定日期的对象
+                    var date2 = new Date('2011/11/11');
+
+                    var date3 = new Date('2011/11/11 11:11:11');
+            3.方法：
+                １．读取或设置当前时间的毫秒数
+                    1.  getTime()
+                            会返回当前日期时间距1970-01-01 
+                                            00:00:00
+                            之间间隔的毫秒数
+
+                    ２．setTime(s)
+                        根据指定的毫秒数s ,计算日期
+
+                ２．获取时间分量
+                    １．getFullYear()
+                        获取当前日期对象中四位的年份信息
+
+                    ２．getMonth()
+                        获取当前日期对象中的月份信息
+                        返回值
+                            范围0-11 对应１２个月　在使用时需要手动调整
+
+                    ３．getDate() getDate()
+                        获取当前日期对象中的天数
+
+                    4.  getDay()        getday()
+                        获取当前日期对象中的星期数
+                        返回值范围0-6 对象星期天　- 星期六　
+                        星期天需要特殊处理
+
+                    5.  getHours()
+                        获取当前日期对象中的小时数
+
+                    ６． getMinutes()
+                        获取分钟数　
+
+                    ７． getSeconds()
+                        获取秒数
+
+                    8.  getMilliseconds()
+                        获取毫秒数
+
+                3.  设置日期的显示方式
+                    １．toString()
+                    ２．toLocaleString()
+                        根据本地时间将date对象转换为字符串，返回以本地规则格式化后的日期
+
+                    ３．toLocaleTimeString();
+
+                    4. toLocaleDateString();
+
+                    练习　
+                        １．获取当前系统时间
+                        ２．将系统时间以以下格式输出
+                            xxxx年xx日xx日　xx时xx分xx秒　星期几
+
+        5   BOM
+            1.BOM 与　DOM
+                BOM: Browser Object Model 浏览器对象模型
+                    提供操作浏览器的相关方法
+                    核心对象　window,是浏览器窗口对象，是JS的顶层对象
+
+
+                DOM: Document Object Model 文档对象模型　
+                        提供操作文档的相关方法　
+                        核心对象　document 操作文档
+
+                注意　：
+                    window - > document  //window顶层对象包含document
+                    document.write()
+                    window.document.write();
+
+            2.window对象
+                １．表示浏览器窗口对象　
+                    自定义全局变量和全局函数，默认都是window对象的属性和方法，使用时可以省略window 
+
+                2.  对话框
+                    １．window.alert(); alert 
+                        普通警告框，参数为提示信息
+                    ２．window.prompt();      prompt 
+                        带有输入框的弹框，参数为提示信息，返回用户输入的字符串
+                    ３．window.confirm(); confirm()
+                        带有确定和取消按钮的提示框，参数为提示信息　
+                        返回布尔值，true表示用户点击确定，其他一律为
+                        false 
+
+                3.  定时器方法：
+                    １．分类：
+                        １．周期性定时器(间歇调用)
+                        ２．一次性定时器（超时调用）
+                    ２．作用：
+                        根据指定的时间间隔，周期性或一次性调用函数，执行代码
+
+                    ３．使用：
+                        １．间歇调用
+                            １．特点：每隔一段时间，自动执行某段代码
+                            ２．语法：
+                            window.setInterval(fun,duration)
+                            参数　：　
+                                １．fun:表示要周期执行的代码段
+                                ２．duration: 间隔时长
+                                    默认以毫秒为单位
+                                    1秒　＝　1000毫秒
+                            返回值：
+                                返回当前定时器的ID,实际上就是整数值
+                                取消定时器时，根据定时器ID进行取消
+
+                            ３．取消间隔调用
+                                语法：
+                                    clearInterval(timerID);
+                                    作用：取消周期性定时器
+                                    参数：timerID表示要取消的定时器ID
+
+                        2.  超时调用
+                            １．特点：超过指定的时间间隔之后，执行一次给定代码
+
+                            ２．语法：
+                                setTimeout(fun,duration);
+                                参数：
+                                    fun:　要执行的代码段
+                                    duration:间隔时长，默认毫秒为单位
+                                返回值：定时器id
+
+                            3.  取消超时调用
+                                clearTimeout(timer);
+                                参数：要取消的定时器ID
+
+                        3   注意：
+                                在给定的时间间隔内，程序是不会阻塞或等待的，而是向下执行其他语句
+
+                        练习：
+                            １．创建按钮　开始和结束　 onclik=
+                            ２．点击开始，开启一个定时器，每隔一秒在控制台输出当前的日期时间
+                            ３．点击结束　，停止定时器
+
+                        练习２　
+                            １，创建按钮
+                            ２，按钮点击时，弹出确认框，提示是否需要关闭窗口
+
+                            ３．如果点击确定，则5秒后自动关闭当前窗口
+                                window.close();
+
+                                
+
+
+
+
+
+
+
+
+
+
+

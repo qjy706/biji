@@ -1,0 +1,38 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+
+    var timer;
+        function start(){
+            timer = setInterval(function(){
+                var date = new Date();
+                console.log(date);
+            },1000);
+        }
+
+        function stop(){
+            clearInterval(1);
+        }
+
+        function closeWindow(){
+            //弹框
+            var res = confirm('确认关闭?');
+            if(res == true){
+                //五秒后关闭窗口
+                setTimeout('window.close();',5000);
+            }
+        }
+
+    </script>
+
+
+</head>
+<body>
+    <input type="button" value="开始" onclick="start()">;
+    <input type="button" value="结束" onclick="end()">;
+    <input type="button" value="关闭网页" onclick="closeWindow()">;
+</body>
+</html>

@@ -1,0 +1,66 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        // var a = new Array();
+
+        //创建数组
+        a = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','t','w','x','y','z',1,2,3,4,5,6,7,8,9,0];
+
+        len = a.length-1;
+
+        console.log(len);
+
+        list = [];
+        //输出验证码  数组的元素　*随机　在用下标索引值　最后添加进新的列表
+        //random后面乘以什么数字就是在０－该数字范围内随机取值
+        //可以用这个方法索引数组中的元素
+        for(var i = 0 ; i <= 5; i++){
+            var c = Math.random()*(len);
+            var d = parseInt(c);
+            var yuanSu = a[d];
+            list.push(yuanSu);
+        }
+
+        console.log(list);
+        //去掉逗号链接
+        var newlist = list.join('');
+        console.log(newlist);
+        alert('验证码是'+newlist);
+
+
+
+        var yanZheng = prompt('请输入验证码');
+        console.log(yanZheng);
+
+        var x = [123456];
+        for(var i = 0; i <= 5 ; i++){
+            if(typeof yanZheng[i] == Number){
+                x[i] = Number(yanZheng[i]);
+            }else{
+                x[i] = yanZheng[i].toLowerCase()
+            }
+
+        }
+
+        console.log(x);
+
+        var newX = x.join('');
+        console.log(newX);
+
+        if(newlist != newX){
+            alert('验证码输入错误')
+        }else{
+            alert('验证成功')
+        };
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

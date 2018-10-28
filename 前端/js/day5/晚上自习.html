@@ -1,0 +1,47 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        
+    </div>
+    <input type="text" name="uname">
+        <input type="button" value="提交" onclick="abc();">
+
+    <a href="http://www.baidu.com" id="asd">超链接</a>
+    <input type="button" value="转换" onclick="zhuanhuan();">
+
+</body>
+    <script type="text/javascript">
+        function abc(){
+            var a = document.getElementsByName('uname')[0];
+            console.log(a);
+            var div = document.getElementsByTagName('div')[0];
+            console.log(a.value);
+            div.innerHTML = '<h1>'+a.value+'</h1>';
+            a.setAttribute('id','d1');
+            console.log(a.getAttribute('id'));
+            console.log(div.innerHTML);
+            a.removeAttribute('id');
+            console.log(a);
+            a.setAttribute('name','uname');
+            a.setAttribute('id','d1');
+            console.log(a);
+            a.className='c1 c2';
+            a.id='d2';
+            console.log(a.className,a.id);
+
+        }
+
+        function zhuanhuan(){
+            var alink = document.getElementById('asd');
+            console.log(alink);
+            alink.href = 'http://www.tmooc.cn';
+            alink.style.color = 'red';
+
+        }           
+    </script>
+</html>

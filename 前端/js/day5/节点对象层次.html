@@ -1,0 +1,44 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body id='d1'>
+    <h1 id="box">
+        一级标题
+        <span id='span'>span文本</span>
+        span后的文本
+        <strong>strong标签</strong>
+    </h1>
+    <script type="text/javascript">
+        //1.获取元素节点
+        var h1 = document.getElementById('box');
+        var h2 = document.getElementById('d1');
+        var span = document.getElementById('span');
+        console.log(h1.nodeType,h1.nodeName);
+        //获取父节点
+        console.log(h1.parentNode);
+        //获取子节点
+        console.log(h1.childNodes);
+        console.log(h2.children);
+        //获取下一个兄弟节点
+        console.log(span.nextSibling);
+        console.log(span.nextElementSibling);
+
+        //获取前一个兄弟节点
+        console.log(span.previousSibling);
+        console.log(span.previousElementSibling);
+
+        //获取属性节点的集合
+        console.log(h1.attributes);
+        for(var i = 0;i<h1.attributes.length; i++){
+            //便利属性节点
+            var attr = h1.attributes[i];
+            console.log(attr.nodeType)
+        }
+
+
+    </script>
+</body>
+</html>

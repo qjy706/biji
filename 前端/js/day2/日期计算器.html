@@ -1,0 +1,35 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        var y = Number(prompt('输入年份'););
+        var m = Number(prompt('输入月份'););
+        var d = Number(prompt('输入日期'););
+        var dayNum = 0;
+        //闰年判断
+        var isRun = (year % 400 == 0) || (year % 100 != 0 && year % 4 == 0);
+
+        if(m == 1){
+            dayNum = day;
+        }else if(m == 2){
+            dayNum = 31 + d;
+        }else if(m == 3){
+            dayNum = 31 + 28 + d;
+        }else if(m == 4){
+            dayNum = 31 + 28 + 31 +d;
+        }
+
+        //判断是否闰年　判断最终天数　
+        if(isRun && m > 2){
+            dayNum++;
+        }
+
+        console.log(y+''+m+''+d+''+'是当年的第'+dayNum+'天');
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

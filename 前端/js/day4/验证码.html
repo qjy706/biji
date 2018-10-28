@@ -1,0 +1,37 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        function creatCode(len){
+            var arr = [0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','t','w','x','y','z'];
+            var code = '';
+            //随机到数组中去 len 位元素
+            for(var i = 0;i < len ; i ++){
+                parseInt(Math.random()*arr.length);
+                code += arr[index];
+            }
+            return code;
+        }
+
+
+
+
+        function validateCode(){
+            var code = creatCode(6);
+            //提示用户输入
+            var input = propmt('请输入'+code);
+            //验证是否正确（忽略大小写）
+            if(input.toUpperCase() == code.toUpperCase()){
+                alert('输入正确');
+            }else{
+                alert('输入有误');
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

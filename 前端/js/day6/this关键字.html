@@ -1,0 +1,43 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        div{
+            width:200px;
+            height:200px;
+            background-color:red;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function(){
+            //当前调用者是div
+            var div = document.getElementsByTagName('div')[0];
+            var input = document.getElementsByTagName('input')[0];
+            div.onclick = function(){
+            console.log(this);}
+
+
+            input.onblur = function(){
+            //用this来触发对象
+            console.log(this.value,input.value);
+        };
+    };
+    </script>
+</head>
+<body>
+    <div id="" class="">
+        
+
+    </div>
+    <input type="text" name="uname">
+    <script type="text/javascript">
+        function fn(){
+            console.log(this);
+        }
+
+        fn();
+    </script>
+</body>
+</html>

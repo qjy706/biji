@@ -1,0 +1,35 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>尺寸</title>
+    <style type="text/css">
+        div{
+            font-size: 20px;
+            width:200px;
+            height:200px;
+            background-color:rgba(255,0,0,.7);
+/*处理内容溢出*/
+            overflow:scroll;
+        }
+        p{
+            color:rgb(0,255,0)
+        }
+    </style>
+</head>
+<body>
+<!-- 有超出的部分　，会对后面的p文档元素进行遮挡 -->
+    <div>
+    内容溢出的处理，默认可见内容溢出的处理，
+    内容溢出的处理，默认可见内容溢出的处理，
+    内容溢出的处理，默认可见内容溢出的处理，
+    内容溢出的处理，默认可见内容溢出的处理，
+    内容溢出的处理，默认可见内容溢出的处理a
+    </div>
+    <p>
+        段落文本
+
+    </p>
+
+</body>
+</html>
