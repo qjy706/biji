@@ -151,6 +151,8 @@ python Web
                     url_for(funName,args)
                         funName:要生成地址的函数名
                         args:该地址中需要的参数
+                个人总结　要生成的地址　不能带参数 e.t. <name>
+                        可以配合超链接跳转使用
 
 6   模板 - templates
 
