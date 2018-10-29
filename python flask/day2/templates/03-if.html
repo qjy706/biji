@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% if params.uname  %}
+    <h1>{{params.uname}}</h1>
+    {% else %}
+    <a  href="{{url_for(login)}}">登录</a>
+    {% endif %}
+</body>
+</html>

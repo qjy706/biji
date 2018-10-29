@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--将05-head.html包含进当前的模板文件中 -->
+    {% include '05-head.html' %}
+
+    <!-- 引入macro.html 并使用声明好的宏　类似于模块-->
+    {% import 'marco.html' as macros %}
+    <ul>
+        {% for str in params.list %}
+            {{macros.show_li(str)}}
+        {% endfor %}
+    </ul>
+
+
+
+    {% for name in params.list %}
+    <div>{{name}}</div>
+    {% endfor %}
+<!--     循环变量　params.dic
+    输出所有的内容，key:value -->
+    {% for name in params.dic %}
+    <div>{{name}}:{{params.dic[name]}}</div>
+    {% endfor %}
+
+<!--     {% for value in params.dic.values()　%}
+        <h2>{{value}}</h2>
+    {% endfor %} -->
+
+
+    
+<!--     {% for value in params.list　%}
+    {% if loop.first %}
+        <h2 style="color:red">{{value}}</h2>
+    {% elif loop.last %}
+        <h2 style="color:green">{{value}}</h2>
+    {% else %}
+        <h2>{{value}}</h2>
+    {% endif %}
+    {% endfor %} -->
+
+    {% for value in params.list　%}
+        <h2 style="background-color: 
+        {% if loop.first %}
+            red
+        {% elif loop.last %}
+            yellow
+        {% else %}
+            deeppink
+        {% endif %}
+        ;">{{value}}</h2>
+    {% endfor %}
+
+<!--     声明一个宏　接受一个字符串参数，将该参数放在<p>打印输出 -->
+    {% macro showP(str) %}
+        <p style="background:orange;">{{str}}</p>
+    {% endmacro %}
+    <h1>使用宏显示数据</h1>
+    {% for name in params.list %}
+        {{showP(name)}}
+    {% endfor %}
+
+</body>
+</html>
