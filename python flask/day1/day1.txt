@@ -87,6 +87,8 @@ python Web
             客户端发送请求给web服务器,web服务器再将请求发送给flask程序实例　
             程序实例需要知道每个url请求所对应的运行代码是谁，所有程序中必须要创建一个url请求地址　
             到python运行函数的一个映射，处理url和函数之间的关系的程序就是路由　
+            路由在MVC架构的web架构中重要的概念：
+            在Flask框架中，路由表示用户请求的URL找出其对应的处理函数
 
         ２．路由的体现　
             在flask中，路由是通过@app.route　装饰器来表示的　
@@ -132,7 +134,9 @@ python Web
 
 
             4   路由中设置HTTP请求方法　
-                Flask路由也允许设置对应的请求方法(post/get),只有将匹配上请求方法的路径才能交给对应的视图处理函数去处理，所有的路由，默认只接受get请求
+                Flask路由也允许设置对应的请求方法(post/get),
+                只有将匹配上请求方法的路径才能交给对应的视图处理函数去处理，
+                所有的路由，默认只接受get请求
                 @app.route('/xxx/xxx',methods=['post'])
                 def xxx:
                     pass
@@ -151,7 +155,7 @@ python Web
                     url_for(funName,args)
                         funName:要生成地址的函数名
                         args:该地址中需要的参数
-                个人总结　要生成的地址　不能带参数 e.t. <name>
+                个人总结　要生成的地址　不能带形参 e.t. <name>
                         可以配合超链接跳转使用
 
 6   模板 - templates

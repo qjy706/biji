@@ -32,7 +32,7 @@ def template():
     qu='乃亮'
     singer='羽凡'
 
-
+# locals()把局部变量用键值对的方式组合起来，这是一个拷贝，对其进行操作不会影响到内存空间内的值
     return render_template('templates01.html',params=locals())
 
 

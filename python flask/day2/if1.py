@@ -24,9 +24,8 @@ def for1():
     return render_template('04-for.html',params=locals())
 
 @app.route('/05-static')
-def asd():
-    return render_template('05-head.html')
-
+def static_views():
+    return render_template('05-static.html')
 
 if __name__ == '__main__':
     app.run(debug=True,port=9000)

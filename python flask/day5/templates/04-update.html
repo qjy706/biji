@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <form action="" method="post">
+        <p>
+            用户:<input id='d1' type="text" name="uname">
+        </p>
+        <p>
+            年龄:<input id='d2' type="text" name="uage" >
+        </p>
+        <p>
+            邮箱:<input id='d3' type="text" name="uemail">
+        </p>
+        <p>
+            <input type="button" value="修改" >
+        </p>
+    </form>
+</div>
+<script>
+    var input1 = document.getElementById('d1');
+    console.log(input1)
+    var input2 = document.getElementById('d2');
+    var input3 = document.getElementById('d3');
+    input1.value='{{info.username}}';
+    input2.value='{{info.age}}';
+    input3.value='{{info.email}}';
+
+</script>
+</body>
+</html>

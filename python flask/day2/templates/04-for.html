@@ -8,13 +8,14 @@
     <!--将05-head.html包含进当前的模板文件中 -->
     {% include '05-head.html' %}
 
-    <!-- 引入macro.html 并使用声明好的宏　类似于模块-->
-    {% import 'marco.html' as macros %}
+    <!-- 引入macro.html 并使用声明好的宏　类似于模块 导入macro模块　调用里面的方法-->
+    {% import 'macro.html' as macros %}
     <ul>
         {% for str in params.list %}
             {{macros.show_li(str)}}
         {% endfor %}
     </ul>
+
 
 
 
@@ -32,16 +33,18 @@
     {% endfor %} -->
 
 
-    
-<!--     {% for value in params.list　%}
+
+    {% for value in params.list　%}
     {% if loop.first %}
         <h2 style="color:red">{{value}}</h2>
+
     {% elif loop.last %}
         <h2 style="color:green">{{value}}</h2>
     {% else %}
         <h2>{{value}}</h2>
+    <h2 style="color:red">{{loop.index}}</h2>
     {% endif %}
-    {% endfor %} -->
+    {% endfor %}
 
     {% for value in params.list　%}
         <h2 style="background-color: 
