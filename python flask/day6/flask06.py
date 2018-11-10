@@ -18,8 +18,8 @@ app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN']=True
 #db是SQLAlchemy的实例，表示的是正在使用的数据库，
 # 同时db页具备SQLAlchemy中的所有功能　
 db=SQLAlchemy(app)
-
-db.init_app(app)
+#
+# db.init_app(app)
 
 
 
@@ -52,6 +52,10 @@ class Teacher(db.Model):
     #是一个独立的对象　不是一个列表　
     wife = db.relationship('Wife',backref='teacher',uselist=False)
 
+    courses = db.relationship('Student', secondary='student_teacher', lazy='dynamic',
+                              #防止数据过大造成性能降低，关联和反向都设置一个懒惰
+                              backref=db.backref('teacher', lazy='dynamic'))
+
 
     def __repr__(self):
         return '<Teacher:%r>' % self.tname
@@ -74,11 +78,44 @@ class Wife(db.Model):
         return '<Wife:%r>' % self.wname
 
 
+#多对多
+
+class Student(db.Model):
+    __tablename__ = 'student'
+    id = db.Column(db.Integer,primary_key=True)
+    sname = db.Column(db.String(30))
+    sage = db.Column(db.Integer)
+
+
+    # 增加关联属性　以及反向引用　 随便哪张多表都可以
+    courses = db.relationship('Course',secondary='student_course',lazy='dynamic',
+                              backref=db.backref('students',lazy='dynamic'))
+
+    def __repr__(self):
+        return '<student:%r>'%self.sname
 
 
 
+#创建多对多的第三张关联表，不需要对应的实体类，
+
+student_course = db.Table(
+    # 指定关联表的表名
+    # 指定关联表的主键
+    # 指定外键，关联一张多表的主键
+    # 指定外键，关联另外一张的主键
+    #分别关联多表的主键
+    'student_course',
+    db.Column('id', db.Integer, primary_key=True),
+    db.Column('student_id', db.Integer, db.ForeignKey('student.id')),
+    db.Column('course_id', db.Integer, db.ForeignKey('course.id'))
+    )
 
 
+student_teacher = db.Table(
+    'student_teacher',
+    db.Column('id',db.Integer,primary_key=True),
+    db.Column('student_id', db.Integer, db.ForeignKey('student.id')),
+    db.Column('Teacher_id', db.Integer, db.ForeignKey('Teacher.id')))
 
 
 
@@ -102,30 +139,43 @@ def register_teacher():
     teacher = Teacher()
     teacher.tname= '魏老师'
     teacher.tage = 28
+    #通过关联属性进行赋值　 在多表中
     #现货去一个course 对象
     course = Course.query.filter_by(id=1).first()
     #在将course对象赋值给teacher 其实是对象　 course属性需要赋值　
     teacher.course  = course
     #保存到数据路
     db.session.add(teacher)
+
+    #通过外键id进行赋值　
+    # teacher1.tname= '王老师'
+    # teacher1.tage = 30
+    #
+    # teacher1.course_id = 1
+    # db.session.add(teacher1)
     return '帅'
 
 @app.route('/03-query-teacher')
 def query_teacher():
     #通过course查找对应的所有的老师
-    #查找course_id为1的course对象
+    #查找course_id为1的course对象 first返回的是一个对象　
     course = Course.query.filter_by(id=1).first()
-    print(course)
-    #查找course对应的所有的teacher们
+    print('课程名称'+course.cname)
+    #查找course对应的所有的teacher们 　all()返回的是一个列表　需要遍历
+    c = course.teachers
+    print(c)
     teachers = course.teachers.all()
     for tea in teachers:
         print('教师姓名'+tea.tname)
-        course = tea.course
-        print('教书课程'+course.cname)
+
+
 
     #通过teacher的course属性查找对应的course
-    # course = Teacher.course
-    # print('教书课程'+course.cname)
+    teacher = Teacher.query.filter_by(id=1).first()
+    print('教师姓名'+teacher.tname)
+
+    course1 = teacher.course
+    print('教授课程'+course1.cname)
     return 'Query OK'
 
 @app.route('/04-regTeacher',methods=['GET','POST'])
@@ -176,6 +226,57 @@ def querywife():
     teacher = wife.teacher
     return teacher.tname,wife.wname
 
+
+@app.route('/08-asc')
+def add_student_course():
+    #获取id为1的学生信息 就给id为１的学员添加课程信息　
+    student = Student.query.filter_by(id=1).first()
+    #获取id为1的课程信息
+    course = Course.query.filter_by(id=1).first()
+    #将student与course关联到一起　一对多是一个列表
+    student.courses.append(course)
+    db.session.add(student)
+    return 'Add course OK'
+
+
+
+@app.route('/09=get')
+def get():
+    student = Student.query.filter_by(id=1).first()
+    # 设置时候因为是lazy，所以要用到取值函数才能取值
+    courses = student.courses.all()
+    print(courses)
+    return 'query ok'
+
+
+@app.route('/010-refister-student',methods=['GET','POST'])
+def show():
+    if request.method == 'GET':
+        students = db.session.query(Student).all()
+        teachers =  db.session.query(Teacher).all()
+        print(teachers)
+        return render_template('010-refister-student.html',students=students,teachers=teachers)
+    else:
+        sname = request.form.get('xueyuan')
+        student = Student.query.filter_by(sname=sname).first()
+        print(student)
+        # getlist 以列表的形式获取提交的所有值
+        teachername = request.form.getlist('teacher')
+        print(teachername)
+        # 返回是一个列表
+        teacher = Teacher.query.filter(Teacher.tname.in_(teachername)).all()
+        print(teacher)
+        for tea in teacher:
+            #老师添加学生
+            tea.courses.append(student)
+            db.session.add(tea)
+        return 'ok'
+
+
+@app.route('/011-show')
+def query11():
+    teacher = Teacher.query.all()
+    return render_template('011-query.html',teacher = teacher)
 
 
 db.create_all()

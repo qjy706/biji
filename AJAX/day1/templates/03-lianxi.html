@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function btnajax(uname) {
+            var xhr = new XMLHttpRequest();
+            var uname = document.getElementById('uname').value;
+            var url = '/03-server?uanme='+uanme;
+            xhr.open('get',url,true);
+            //设置回调函数
+            xhr.onreadystatechange = function(){}
+            if(xhr.readyState == 4 && xhr.status == 200){
+                //获取节点赋值
+                document.getElementById('show').innerHTML = xhr.responseText;
+
+            }
+        }
+        xhr.send(null)
+    </script>
+</head>
+<body>
+
+    <p>
+        用户名称 : <input type="text" id="uname">
+        <br>
+        <button onclick="btnajax();">发送</button>
+    </p>
+
+    <p>
+        <input id='d1' type="submit" value="发送">
+    </p>
+
+    <div id="show"></div>
+</body>
+</html>

@@ -95,3 +95,9 @@ jQuery 使用
                     3.  :not
                         否定筛选,将selector匹配的元素过滤在外
                         :not(selector)
+
+
+
+                迭代　
+                $(arr).each(function(i,obj){})
+                $.each(attr,function(i,obj){})

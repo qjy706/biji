@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/jquery.js"></script>
+    <script>
+        $(function () {
+
+            var arr = [
+                    {
+                        "name":"mrwang",
+                        "age":37,
+                        "gender":"男"
+                    },
+                    {
+                        "name":"王夫人",
+                        "age":15,
+                        "gender":"男"
+                    }
+                            ];
+            //绑定事件
+            $('#json').click(function () {
+                var json = {
+                    "name":"mrwang",
+                    "age":37,
+                    "gender":"男"
+                }
+                console.log("姓名:"+json.name);
+                console.log("年龄:"+json.age);
+                console.log("性别:"+json.gender);
+            });
+
+
+                    $('#jsonArray').click(function(){
+            var arr = [
+                {
+                    "name":"mrwang",
+                    "age":37,
+                    "gender":"男"
+                },
+                {
+                    "name":"王夫人",
+                    "age":15,
+                    "gender":"男"
+                }
+
+            ];
+            //表示每个元素的下标
+            for(var i in arr){
+                //i表示的是每个元素的下标(字符串类型)和字符串索引
+                console.log(i);
+                var obj = arr[i];
+                console.log('姓名:'+obj.name);
+                console.log('年龄'+obj.age);
+                console.log('性别'+obj.gender);
+                             }
+            })
+
+
+            $('#all').click(function () {
+
+                var html = '';
+                $(arr).each(function (i,obj) {
+                    html += '<tr>';
+                    html += '<td>'+obj.name+'</td>';
+                    html += '<td>'+obj.age+'</td>';
+                    html += '<td>'+obj.gender+'</td>';
+                    html += '</tr>';
+                    $('#body').html(html);
+                })
+
+
+            })
+
+
+
+            //4.each
+            $('#btneach').click(function () {
+                $.each(arr,function (i,obj) {
+                    console.log('========');
+                    console.log('下标'+i);
+                    console.log('姓名:'+obj.name);
+                    console.log('姓名:'+obj.age);
+                    console.log('姓名:'+obj.gender);
+                })
+            })
+
+            //5 $obj.each()
+            $('#btneach2').click(function () {
+                console.log($(arr));
+                //获取arr对象
+                $(arr).each(function (i,obj) {
+                    console.log('下标'+i);
+                    console.log('姓名:'+obj.name);
+                    console.log('姓名:'+obj.age);
+                    console.log('姓名:'+obj.gender);
+                })
+            })
+
+            //each也可以迭代标签　
+            $('img').each(function (i,obj) {
+                    this.src =  "test" + i + ".jpg";
+
+            })
+
+
+            $('p').each(function (i,obj) {
+                $(this).html('wozuishuai')
+                this.innerHTML = '66'
+            })
+
+        });
+        //2.为#jsonArray绑定click事件
+
+    </script>
+</head>
+<body>
+    <img>
+    <img>
+    <img>
+    <p></p>
+    <p></p>
+    <button id="json">JSON-单个对象</button>
+    <button id="jsonArray">JSON-数组</button>
+    <button id="all">显示所有</button>
+    <table id="table">
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+        </tr>
+        <tbody id="body"></tbody>
+    </table>
+    .
+<button id="btneach">666</button>
+<button id="btneach2">点我</button>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery.js"></script>
+    <script>
+        $(function () {
+            $('#btnload').click(function () {
+                var params = 'name=MRWang&age=30'
+                $('#show').load('/02-server',params);
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="btnload">#obj.load()</button>
+    <div id="show"></div>
+</body>
+</html>

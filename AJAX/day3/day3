@@ -1,0 +1,100 @@
+jquery 对ajax的支持　
+
+1.$obj.load(url,data,callback);
+    作用 : 异步加载数据到$obj元素中
+    callback 向一个地址发送请求，得到的回调函数是什么　
+    参数　：　
+        1.  url:异步请求的地址
+        2.  data:传递给服务端的参数（可选），该数据将决定请求方法是什么
+            １．可以传递普通字符串　
+                "name=Mrwang&age=30"
+            2.  可以是JSON对象
+                {
+                    "name":"Mrwang",
+                    "age":30
+                }
+
+        3.  callback: 异步请求成功后的回调函数（可选）
+            取值为匿名函数　
+            function(resText,statusText){
+                resText :　响应数据
+                statusText: 响应的状态文本
+            }
+
+
+2.  $.get()
+    1.语法　
+        $.get(url,data,callback,type)
+
+    2.参数
+        1.url : 异步请求地址　
+        2.data : 异步请求的参数
+            1.字符串　: name=value&name=value
+            2.JSON : {"name":"value","name":"value"}
+
+        3.callback 请求成功时的回调函数
+            function(resText){
+                resText :　表示就是响应成功后的响应数据
+            }
+
+        4.type : 响应回来的数据的类型
+            1.html : 响应回来的数据是html文本　
+            2.text : 响应回来的数据时text文本　
+            3.json : 响应回来的数据是JSON对象　
+            4.script : 响应回来的数据是js脚本代码　
+            注意　：　如果此处指定了类型的话，那么在callbacj中，就无需再做类型的转换
+
+3   $.post()
+    同get 但是前端需要使用form方法获取数据　
+
+
+4   终极方法　$.ajax(url,[settings])　
+    作用　：　自定所有的ajax行为
+    语法　：　$.ajax({ajax设置的参数})；
+            参数们：
+                １．url :字符串，表示异步请求的地址
+                ２．type :　字符串，请求方式(get,post)
+                ３．data : 传递到服务器端的参数　
+                    1.字符串　: 'name=value&name=value'
+                    2.json对象　: {"name":"value"}
+
+                4.  dataType : 字符串,响应回来的数据的格式　
+                    1.html
+                    2.xml
+                    3.text
+                    4.script
+                    5.json
+                    6.jsonp: 有关跨域的响应格式　
+
+                5.  success : 回调函数，请求和响应成功时的回调函数
+                    function(data){
+                        data:表示服务器端响应回来的数据
+                    }
+
+                6.  error : 回调函数　
+                    请求或响应失败时的回调函数
+
+                7.  beforeSend : 回调函数　
+
+
+跨域　 - Cross Domain
+    1.  什么是跨域
+        HTTP协议中　- 同源策略
+                           http     www.baidu.com       80
+        同源　：　多个地址中，相同协议，相同域名，相同端口被视为'同源'
+            在HTTP中，必须是同源地址才能相互发送请求，非同源地址被拒绝的(<script>和<img>)
+            同源策略是用来限制从一个源加载的文档或者脚本如何与来自另一个源的资源进行交互，
+            是一种用于隔离潜在的恶意文件的关键的安全机制。
+
+        跨域：非同源的网页，在相互发送请求时需要跨域　
+
+
+    2.  跨域的解决方案
+        通过<script>向服务器发送请求
+        由服务器资源来指定前段页面的哪个方法来执行响应的数据
+       前段动态创建script 标签　
+       标签赋值　src=''
+       在把标签作为子元素加进结构中　
+
+
+

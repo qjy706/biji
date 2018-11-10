@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .d2{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="post">
+    <p>
+        登录名称 : <input type="text" id='d1' name="lname">
+        <span id="d2"></span>
+    </p>
+    <p>
+        登陆密码 : <input type="password" name="upwd">
+    </p>
+    <p>
+        用户名称 : <input type="text" name="uname">
+    </p>
+    <p>
+        <input type="button" value="注册">
+    </p>
+    </form>
+    <script>
+        var d1 = document.getElementById('d1')
+        d1.onblur=function () {
+            var xhr = new XMLHttpRequest();
+            var loginname = d1.value;
+            var url = '/02-server?loginname='+loginname;
+            xhr.open('get',url,true)
+            xhr.onreadystatechange=function () {
+                if(xhr.readyState == 4 && xhr.status == 200){
+                    document.getElementById('d2').innerHTML = xhr.responseText;
+                }
+            }
+
+            xhr.send(null);
+        }
+    </script>
+</body>
+</html>

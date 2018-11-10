@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <form action="/010-refister-student" method="post">
+        <p>
+            学员:　　<select name='xueyuan'>
+                    {% for student in students %}
+                    <option value='{{student.sname}}'>{{student.sname}}</option>
+                    {% endfor %}
+        </p>
+
+        <p>
+            老师:    {% for teacher in teachers %}
+                    <input type="checkbox" name="teacher" value={{teacher.tname}}>{{teacher.tname}}
+                    {% endfor %}
+        </p>
+
+        <p>
+        <input type="submit" value="提交">
+        </p>
+
+            <p>
+
+                <a href="/011-show">查看</a>
+            </p>
+
+        </form>
+    </div>
+</body>
+</html>

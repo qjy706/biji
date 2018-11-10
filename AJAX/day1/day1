@@ -1,0 +1,151 @@
+1.  什么是AJAX
+    Asynchronous Javascript And Xml
+    Asynchronous : 异步的　
+        同步访问    当客户端项服务器发送请求时，服务器在处理过程中，浏览器只能等待，效率偏低　
+        异步访问    当客户端向服务器发送请求时，服务器在处理过程中，
+                    客户端可以做其他的操作，不需要一直等待　效率偏高
+
+
+    Xml :   eXtensible Markup Language 　数据存储格式　
+               可扩展的 　标签     语言　
+
+
+    AJAX优点：
+        １．异步　访问
+        ２．局部　刷新 　比如输入用户名，　提示能不能用　
+
+    AJAX的使用场合　
+        １．搜索建议　
+        ２．表单验证　
+        ３．前后端完全分离
+
+
+2.  AJAX的核心对象　- 异步对象(XMLHttpRequest)
+    1.什么是　XMLHttpRequest
+        简称为'xhr'
+        称为'异步对象'，代替浏览器向服务器发送请求并接收响应　
+        xhr是由js提供　
+
+        个人理解是xhr是中介　浏览器的请求　服务器的响应都经过xhr
+        当特殊用途的时候可以调用ajax　
+
+
+    2.  创建异步对象(xhr)
+        主流的异步对象是XMLHttpRequest类型的，并且主流浏览器都支持(IE7,chrome,firefox,safari,Opera )全部支持
+        但在IE低版本浏览器中(IE6以及一下）就不支持
+        XMLHttpRequest,需要使用ActiveXObject()来创建异步对象　
+
+        支持　XMLHttpRequest : new XMLHttpRequest()
+        不支持　XMLHttpRequest: new ActiveXObject('Microsoft.XMLHTTP')
+
+        window.XMLHttpRequest
+
+        练习
+        创建flask项目　－　ＡＪＡＸ01　
+        创建访问路径　/01-xhr 并去往一个模板　
+        在模板中，创建一个按钮，单击时，通过一个js方法，根据浏览器创建xhr对象并返回　
+
+
+
+    3.  xhr的成员  先新建一个xhr的对象　在js中创建　　var xhr = new XMLHttpRequest()
+        1.  方法　：　open()
+            作用　：　创建请求　
+            语法　：　open(method,url,async)
+            method : 请求方法　，取值为'get' 或者'post;
+            url : 请求地址，字符串　跟表单action一样  朝什么地方发送请求
+            async : 是否采用异步方式发送请求　
+                true : 使用异步方式发送请求　
+                false : 使用同步方式发送请求　
+
+            要先新建一个异步对象　
+            ex :
+                xhr.open('get','/url',true)
+
+
+
+        2.  属性　－　readyState
+            作用 :　请求的状态，通过不同的请求状态值来表示xhr与服务器的交互情况
+            　
+            由　0-4共5个值来表示5个不同的状态
+            0 : 请求尚未初始化　
+            1 : xhr已经与服务器建立连接　
+            2 : 服务器端已经开始请求　
+            3 : 请求正在处理中
+            4 : 响应已经完成　
+
+        3.  属性　- status
+            作用　：　表示服务器端的响应状态码　
+                200　：　表示服务器正确处理所有的请求以及给出响应　
+                404　：　请求资源不存在
+                500  :  服务器内部错误　
+
+        4.  属性　 - responseText
+            作用　：　服务器端的响应数据　
+
+        5.  事件 - onreadystatechange
+            作用：　每当xhr的readyState属性值发生改变的时候要触发的操作
+                   更多称之为回调函数　
+                   在该函数中　，
+                   只有当readyState的值为4并且status的值为200的时候，就可以正常的接收responseText了　
+
+        6.  方法　:    send
+            作用　; 通知xhr向服务器端发送请求
+            语法　：　send(body)
+                body : 表示请求的主体
+                get : 是没有请求主体的　所有body的值为null  get的传参在　xhr.open('get','xxx?name=xx&xxx','true)
+                        xhr.send(null)
+
+                post请求　: 是有请求主体的，所有body的位置处要表示请求数据
+                        xhr.send('请求数据')
+                        xhr.send('参数=值&参数=值')
+
+4   AJAX的操作步骤　
+    1.  GET请求
+        1.  创建xhr对象　
+        2.  创建请求 - open() method url async
+        3.  设置回调函数　- onreadystatechange
+            判断状态并且接收数据
+        4.  发送请求　- send()
+
+        1.get请求传递参数　
+            1.获取xhr
+            2   创建请求　
+                xhr.open('get','/xxx?name=value&name=value',true) 　　可以用js中节点.innerHTML 或者　value获取
+
+            3.服务端　
+                使用request.args.get('name')接收请求参数
+
+
+    2.post请求
+        １．请求提交的数据要作为send()的参数进行提交，
+            xhr.send('参数＝值&参数＝值')
+
+        2.  修改请求消息头
+            在ajax中，提交POST请求时，AJAX默认将Content-Type请求消息头的值修改为
+            'text/plain'了，所以导致数据无法正常提交
+
+            解决方案，将Content-Type的请求消息头再修改回'application/x-www-form-urlencoded'即可
+            xhr.setRequestHeader('Contene-Type','application/x-www-form-urlencoded')
+
+
+            创建数据库　-ajax
+            创建实体类　Users 映射成表　
+            id 主键　
+            loginname - 登录名称
+            loginpwd  登陆密码
+            uname - 用户名称
+            使用ajax验证　当鼠标从登录名成的框中失去焦点时，验证登录名称的数据在数据库中是否存在并给出响应
+                        ２．响应内容　
+                                已存在
+                                通过　
+                        ３．使用jquery　
+
+
+
+
+
+
+
+
+
+

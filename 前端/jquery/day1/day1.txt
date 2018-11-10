@@ -29,7 +29,7 @@ jQuery 使用
 
                 注意： 
                 １．jquery对象可以使用jquery提供的方法;
-                    原生js对象可以使用原声js方法，方法不能混用
+                    原生js对象可以使用原生js方法，方法不能混用
                 ２．jquery对象和原生JS对象可以共存，也可以相互转换
 
             ２．工厂函数　$()
@@ -131,7 +131,7 @@ jQuery 使用
 
                     6.  匹配属性名不等于指定属性值的元素
 
-                    $('[attribute != value]')
+                    $('[attribute != value]')  $('[name=asd]')
 
                 5.  子元素过滤选择器
                     １．:first-child
@@ -167,9 +167,9 @@ $('li:nth-child(odd)').css('color','red');
                         １．attr()
                             读取或设置jquery对象的属性
                             et:
-                                $('div').attr('id');
+                                $('div').attr('id');  $('div').attr('id','d1')
                                 设置属性值
-                                $('div').attr('class','c1')
+                                $('div').attr('class','c1') $('div').attr()
 
 
                                 js中
@@ -298,7 +298,7 @@ $('li:nth-child(odd)').css('color','red');
                                 target
                                 offsetX
 
-                            4   this对象
+                            4   this对象 都是dom对象 dom的方法调用　
                                 当前函数或方法的调用对象
 
 

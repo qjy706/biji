@@ -1,0 +1,83 @@
+1.JQ - AJAX
+	1.$obj.load(url,data,callback)
+	2.$.get(url,data,callback,type)
+		$.get('/01-server','name=value',function(data){
+			//data响应回来的时候回被自动转换为json对象
+		},'json')
+	3.$.post(url,data,callback,type)
+	4.$.ajax({})
+		$.ajax({
+			url:'请求地址',
+			type:'请求方式',
+			data:'请求参数 - json/字符串',
+			dataType:'响应回来的数据格式',
+			success:callback - 响应成功的回调函数,
+			error:callback - 响应失败的回调函数,
+			beforeSend:callback - 发送请求前的回调函数
+		});
+2.跨域
+	1.跨域
+		同源策略 ：
+			同源：相同协议，相同域名，相同端口
+			在HTTP中必须是同源地址才能互相发送请求
+			script,img 可以发送非同源请求
+	2.实现
+		//1.动态创建 script
+		var script = document.createElement("script");
+		script.type="text/javascript"
+		script.src = "远程跨域地址"
+		//2.将 script 加入到网页中
+		body=document.getElementsByTagName('body')[0];
+		body.append(script);
+
+		注意：远程跨域地址响应回来的应该是一段可执行的js脚本代码
+	3.jquery 的跨域
+		jsonp - json with padding
+		
+
+		http://127.0.0.1:5000/08-flight?callback=process_flight
+		$.ajax({
+			url:'xxxx',
+			type:'get',
+			dataType:'jsonp',
+			jsonp:'callback',//定义了callback参数名
+			jsonpCallback:'process_flight' //定义处理函数名称
+		});
+
+		简易版：
+		$.ajax({
+			url:'xxxx',
+			type:'get',
+			dataType:'jsonp',
+			success:function(data){
+				处理响应回来的数据
+			}
+		});
+======================================================
+Blog 个人博客
+
+1.数据库
+	导出结构和数据：mysqldump -uroot -p 数据库名 > xxx.sql
+	导出结构：mysqldump -uroot -p -d 数据库名 > xxx.sql
+
+	导入：
+		前提：数据库必须提前创建
+		mysql -uroot -p 数据库名 < xxx.sql
+
+2.蓝图/蓝本 - Blueprint
+	1.子程序中允许将 自身 添加到蓝本中
+	2.主程序中允许使用添加到蓝本中的程序
+
+
+
+
+
+
+
+
+
+
+
+
+
+

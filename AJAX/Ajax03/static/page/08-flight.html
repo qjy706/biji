@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../js/jquery-1.11.3.js"></script>
+  <script>
+    /**
+     * 处理跨域请求后的数据处理函数
+     * */
+    function process_flight(data){
+      //data 已经是JS对象了，所以无需转换
+      $("#flightNO").html(data.flightNO);
+      $("#start").html(data.start);
+      $("#end").html(data.end);
+      $("#time").html(data.time);
+    }
+
+    /*function btnShow(){
+      var body = document.getElementsByTagName('body')[0];
+      var script = document.createElement('script');
+      script.type='text/javascript'
+      script.src='http://127.0.0.1:5000/08-flight?callback=process_flight';
+      body.append(script);
+    }*/
+
+
+    function btnShow(){
+      $.ajax({
+        url:'http://127.0.0.1:5000/08-flight',
+        type:'get',
+        dataType:'jsonp',
+        jsonp:'callback',
+        jsonpCallback:'process_flight'
+      });
+    }
+  </script>
+</head>
+<body>
+  <button onclick="btnShow()">显示</button>
+  <div class="main">
+    <h3>航班编号: <span id="flightNO"></span></h3>
+    <h3>始发城市: <span id="start"></span></h3>
+    <h3>终到城市: <span id="end"></span></h3>
+    <h3>出发时间: <span id="time"></span></h3>
+  </div>
+</body>
+</html>

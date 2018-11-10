@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script></script>
+    <script>
+//        function btnpost() {
+//
+//                var arr = {}
+//                var loginname =
+//                var loginpwd = ''
+//                var uname = ''
+//
+//                $.post('/04-jq-post',function (data) {
+//                    if(data.status == 1){
+//                        window.location.href = ''
+//                    }
+//                    else{
+//                        $('.d2').html(data.msg)
+//                    }
+//                },'json')
+//        }
+
+        $(function () {
+            $('btnpost').click(function () {
+               //1.获取参数 拼接成js对象
+                data = {
+                    'loginname':$('#loginname').val(),
+                    'loginpwd':$('#loginpwd').val(),
+                    'uname':$('#uname').val()
+                }
+                //2.使用$.post()
+                $.post('/04-jq-post',data,function (data) {
+                    if(data.status == 1){
+                        $('#loginname').val('');
+                        $('#loginpwd').val('');
+                        $('#uname').val('');
+                        alert(data.msg);
+                    }else{
+                        alert(data.msg);
+                    }
+                },'json')
+                    
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <form id="d1">
+            <p>
+                登录名称: <input id="loginname" type="text" name="loginname">
+            </p>
+            <p>
+                登录密码: <input id='loginpwd' type="text" name="loginpwd">
+            </p>
+            <p>
+                用户名称: <input id='uname' type="text" name="uname">
+            </p>
+            <button id="btnpost">保存并添加另一个</button>
+            <p id="d2"></p>
+        </form>
+    </div>
+</body>
+</html>

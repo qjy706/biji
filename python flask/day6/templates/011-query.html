@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table border="1" width="400">
+        <tr>
+            <th>学员姓名</th>
+            <th>学员年龄</th>
+            <th>老师姓名</th>
+            <th>老师年龄</th>
+        </tr>
+    </table>
+    {% for tea in teacher %}
+        {% for stu in teacher.courses.all() %}
+            <tr>
+                <td>{{stu.sname}}</td>
+                <td>{{stu.sage}}</td>
+                <td>{{tea.tname}}</td>
+                <td>{{tea.tage}}</td>
+            </tr>
+        {% endfor %}
+    {% endfor %}
+
+</body>
+</html>

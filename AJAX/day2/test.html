@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/js/jquery.js"></script>
+    <script>
+        $(function(){
+            var xhr = new XMLHttpRequest()
+            xhr.open('get',url,true)
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState == 4 && xhr.status == 200){
+                    //json是一个字典的格式
+                    var resText = JSON.parse(xhr.responseText)
+                    var html=''
+                    $.each(resText,function (i,obj) {
+                        html += '<tr>';
+                        html += '<td>'+obj.loginname+'</td>';
+                        html += '<td>'+obj.loginpwd+'</td>';
+                        html += '<td>'+obj.uname+'</td>';
+                        html += '<td>';
+                        html += "<button onclick='delUser("+obj.id+")'>删除</button>";
+                        html += '</td>';
+                        html += '</tr>';
+                    })
+                    $('#body').html(html)
+
+                }
+            }
+                xhr.send(null)
+        })
+        
+        function delUser() {
+            if(window.confirm('要删除么')){
+                var xhr = new XMLHttpRequest()
+                var url = '/04-def?id='+id;
+                xhr.open('get',url,true)
+                xhr.onreadystatechange=function () {
+                    if(xhr.readyState == 4 && xhr.status == 200){
+                        var obj = JSON.parse(xhr.responseText)
+                        if(obj.status == 1){
+                            alert(obj.msg);
+                            window.location.href = '/04'
+                        }else{
+                            alert(obj.msg);
+                        }
+                    }
+                }
+                xhr.send(null);
+            }
+            
+        }
+
+    </script>
+</head>
+<body>
+    <div>
+    <table id="table">
+        <thead>
+        <tr>
+            <th>登录名</th>
+            <th>登录密码</th>
+            <th>用户名</th>
+            <th>删除</th>
+        </tr>
+        </thead>
+        <tbody id="body"></tbody>
+    </table>
+    </div>
+</body>
+</html>

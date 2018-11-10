@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="btnAjax();">AJAX请求</button>
+<div id="show"></div>
+<script type="text/javascript" src='/static/js/common.js'></script>
+<script>
+    function btnAjax(){
+        //1.创建/获取xhr
+        var xhr = xhr();
+        //2.创建请求 open(method,url,async)
+        xhr.open('get','/02-server',true);
+        //3.设置回量函数
+
+        xhr.onreadystatechange = function(){
+            //判断xhr.readyState是否为4并且xhr.status是否为200
+            if(xhr.readyState == 4 && xhr.status == 200){
+                var resText = xhr.responseText
+                //业务处理
+                document.getElementById('show').innerHTML = resText;
+            }
+        }
+        //4.发送请求
+        xhr.send(null)
+    }
+</script>
+</body>
+</html>
