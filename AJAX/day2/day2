@@ -38,7 +38,10 @@
             ];
 
 
-    4   使用jq的each()迭代数组
+    4   使用jq的each()迭代数组  js中　for(x in arr){
+                                        遍历出来是一个下标
+                                        arr[x]
+                                                }
     1.  $.each();
         语法: $.each(arr,function(index,obj){
                 //arr   数组

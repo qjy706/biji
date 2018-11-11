@@ -125,7 +125,7 @@
             'text/plain'了，所以导致数据无法正常提交
 
             解决方案，将Content-Type的请求消息头再修改回'application/x-www-form-urlencoded'即可
-            xhr.setRequestHeader('Contene-Type','application/x-www-form-urlencoded')
+            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
 
 
             创建数据库　-ajax
